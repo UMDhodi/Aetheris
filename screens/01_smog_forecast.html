@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"on-primary-fixed-variant":"#005137","background":"#faf9ff","surface-container-highest":"#dfe2ef","on-surface-variant":"#3d4a42","on-error-container":"#93000a","on-secondary-fixed-variant":"#93000b","secondary-container":"#e02928","surface-container-lowest":"#ffffff","surface-tint":"#006c4a","tertiary-fixed":"#cce5ff","inverse-primary":"#68dba9","surface-dim":"#d7d9e7","on-tertiary-fixed-variant":"#004b73","tertiary-fixed-dim":"#93ccff","surface":"#faf9ff","primary":"#006948","error":"#ba1a1a","on-primary":"#ffffff","on-surface":"#181b25","on-background":"#181b25","primary-fixed-dim":"#68dba9","tertiary-container":"#007bb9","surface-variant":"#dfe2ef","outline":"#6d7a72","on-primary-container":"#f5fff7","on-tertiary":"#ffffff","inverse-on-surface":"#eef0fe","error-container":"#ffdad6","surface-container-high":"#e5e8f5","on-secondary-container":"#fffbff","secondary-fixed":"#ffdad6","on-secondary-fixed":"#410002","secondary":"#bb0112","secondary-fixed-dim":"#ffb4ab","outline-variant":"#bccac0","on-tertiary-fixed":"#001d31","on-primary-fixed":"#002114","primary-container":"#00855d","surface-bright":"#faf9ff","on-error":"#ffffff","tertiary":"#006194","inverse-surface":"#2c303a","surface-container-low":"#f1f3ff","surface-container":"#ebedfb","primary-fixed":"#85f8c4","on-tertiary-container":"#fdfcff","on-secondary":"#ffffff"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-md":"1rem","margin-desktop":"3rem","margin-tablet":"2rem","margin":"1rem","gutter":"1rem","space-sm":"0.5rem","space-xl":"2.5rem","space-xs":"0.25rem","gutter-desktop":"1.5rem","space-lg":"1.5rem"},"fontFamily":{"body-lg":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"headline-xl-mobile":["Plus Jakarta Sans"],"headline-xl":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"]},"fontSize":{"body-lg":["16px",{"lineHeight":"26px","letterSpacing":"-0.01em","fontWeight":"400"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"700"}],"body-sm":["12px",{"lineHeight":"18px","letterSpacing":"0em","fontWeight":"400"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"headline-sm":["20px",{"lineHeight":"28px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-lg-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-md":["14px",{"lineHeight":"22px","letterSpacing":"-0.005em","fontWeight":"400"}],"headline-xl-mobile":["30px",{"lineHeight":"38px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-xl":["40px",{"lineHeight":"48px","letterSpacing":"-0.03em","fontWeight":"700"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.025em","fontWeight":"700"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen flex flex-col justify-between"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 w-full max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-lg"><a class="font-headline-md text-headline-md text-on-surface tracking-tight hover:opacity-90 transition-opacity" data-path="smog-forecast" href="#">Aetheris</a></div><nav class="hidden lg:flex items-center gap-space-xs p-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-label-md rounded-lg"><a aria-current="page" class="px-space-md py-space-sm transition-colors bg-primary-container text-on-primary-container font-label-md rounded-lg" data-path="smog-forecast" href="#">Smog Forecast</a><a class="px-space-md py-space-sm font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-lg transition-colors" data-path="ai-air-nav" href="#">AI Air Nav</a><a class="px-space-md py-space-sm font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-lg transition-colors" data-path="action-workflows" href="#">Action Workflows</a><a class="px-space-md py-space-sm font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-lg transition-colors" data-path="impact-metrics" href="#">Impact Metrics</a><a class="px-space-md py-space-sm font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-lg transition-colors" data-path="pricing-community" href="#">Pricing &amp; Community</a></nav><div class="flex items-center gap-space-md"><button aria-label="Notifications" class="p-space-xs rounded-lg text-outline hover:text-on-surface hover:bg-surface-container transition-colors flex items-center justify-center" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span></button><a class="inline-flex items-center justify-center px-space-md py-space-xs rounded-full bg-surface-container-low font-label-md text-label-md text-on-surface hover:bg-surface-container transition-colors" data-path="account" href="#">Dr. Maya</a></div></div></header><main class="w-full pt-16 flex-1 bg-surface"><div class="flex flex-col w-full">
+<!-- INVERSION HAZARD DISPATCH BANNER -->
+<div class="w-full bg-error-container text-on-error-container px-margin md:px-margin-tablet lg:px-margin-desktop py-space-sm shadow-sm transition-all duration-300">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[20px] animate-pulse">crisis_alert</span>
+<span class="font-label-md text-label-md tracking-wide uppercase text-secondary">Basin Thermal Inversion Active</span>
+<span class="hidden md:inline text-outline-variant">|</span>
+<span class="font-body-sm text-body-sm text-on-error-container">Critical boundary layer compression trapping PM2.5 below 420m MSL. Mandatory wood burning curfew enforced.</span>
+</div>
+<div class="flex items-center gap-space-sm self-end md:self-auto">
+<span class="font-label-sm text-label-sm bg-surface-container-lowest/80 text-secondary px-space-sm py-space-xs rounded">Zone 04: Wasatch Low Basin</span>
+<button aria-label="Dismiss alert" class="p-space-xs text-on-surface-variant hover:text-on-surface transition-colors" onclick="this.closest('.w-full').remove()" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+</div>
+<div class="w-full max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop py-space-lg flex flex-col gap-space-xl">
+<!-- PAGE HEADER & BASIN SELECTOR -->
+<section class="flex flex-col gap-space-md">
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs max-w-3xl">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm tracking-widest uppercase text-primary font-bold">ATMOSPHERIC RECONNAISSANCE ENGINE</span>
+<span class="text-outline text-body-sm">•</span>
+<span class="font-label-sm text-label-sm text-outline uppercase">LIDAR LID PROFILE 0.04° RES</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface font-extrabold tracking-tight">Hyper-Local Smog Forecast &amp; Route Exposure Minimizer</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Predictive basin atmospheric inversions, high-resolution trapping heights, and dynamic vehicle clean-air corridor routing.</p>
+</div>
+<!-- Basin Selector Chips -->
+<div class="flex flex-wrap items-center gap-space-xs bg-surface-container-low p-space-xs rounded-xl shadow-sm">
+<button class="px-space-md py-space-xs rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-sm transition-all flex items-center gap-space-xs" type="button">
+<span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
+            Wasatch Front / SLC #401
+          </button>
+<button class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-label-md text-label-md transition-colors" type="button">
+            Denver Basin
+          </button>
+<button class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-label-md text-label-md transition-colors" type="button">
+            Central Valley
+          </button>
+<button class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-label-md text-label-md transition-colors" type="button">
+            Po Valley, Milan
+          </button>
+<button class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-label-md text-label-md transition-colors" type="button">
+            New Delhi NCR
+          </button>
+</div>
+</div>
+</section>
+<!-- SECTION 1: TOP ATMOSPHERIC & HEALTH KPIS -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-space-md">
+<!-- KPI 1: Trapping Ceiling -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div class="absolute top-0 left-0 right-0 h-1 bg-secondary"></div>
+<div class="flex items-center justify-between text-outline">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Trapping Ceiling</span>
+<span class="material-symbols-outlined text-[18px] text-secondary">compress</span>
+</div>
+<div class="my-space-sm">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold">420</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">m MSL</span>
+</div>
+<p class="font-label-sm text-label-sm text-secondary font-bold mt-space-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">arrow_downward</span> Compression Lid Critical
+          </p>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-secondary h-full w-[88%]"></div>
+</div>
+</div>
+<!-- KPI 2: Stagnation Shear -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div class="absolute top-0 left-0 right-0 h-1 bg-secondary-container"></div>
+<div class="flex items-center justify-between text-outline">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Stagnation Shear</span>
+<span class="material-symbols-outlined text-[18px]">air</span>
+</div>
+<div class="my-space-sm">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold">0.8</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">m/s</span>
+</div>
+<p class="font-label-sm text-label-sm text-secondary font-bold mt-space-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">block</span> Nil Dispersion Wind
+          </p>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-secondary h-full w-[14%]"></div>
+</div>
+</div>
+<!-- KPI 3: Chemical Mix -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div class="absolute top-0 left-0 right-0 h-1 bg-tertiary-container"></div>
+<div class="flex items-center justify-between text-outline">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Speciation Mix</span>
+<span class="material-symbols-outlined text-[18px]">biotech</span>
+</div>
+<div class="my-space-sm">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold">68%</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Biomass</span>
+</div>
+<p class="font-label-sm text-label-sm text-outline mt-space-xs">
+            32% Mobile NOx &amp; Soot
+          </p>
+</div>
+<div class="flex h-1.5 rounded-full overflow-hidden w-full">
+<div class="bg-secondary w-[68%]"></div>
+<div class="bg-tertiary-container w-[32%]"></div>
+</div>
+</div>
+<!-- KPI 4: Predicted Flush Event -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div class="absolute top-0 left-0 right-0 h-1 bg-primary"></div>
+<div class="flex items-center justify-between text-outline">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-bold">Predicted Flush</span>
+<span class="material-symbols-outlined text-[18px] text-primary">cyclone</span>
+</div>
+<div class="my-space-sm">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-primary font-bold">+38.5</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">hrs</span>
+</div>
+<p class="font-label-sm text-label-sm text-primary font-bold mt-space-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">verified</span> Pacific Cold Front
+          </p>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary h-full w-[55%]"></div>
+</div>
+</div>
+<!-- KPI 5: Outdoor Valley Floor AQI -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div class="absolute top-0 left-0 right-0 h-1 bg-secondary"></div>
+<div class="flex items-center justify-between text-outline">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Valley Floor AQI</span>
+<span class="material-symbols-outlined text-[18px] text-secondary">warning</span>
+</div>
+<div class="my-space-sm">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-secondary font-extrabold">174</span>
+<span class="font-body-sm text-body-sm text-secondary font-bold">AQI</span>
+</div>
+<p class="font-label-sm text-label-sm text-secondary font-semibold mt-space-xs">
+            PM2.5: 94.2 µg/m³ (Unhealthy)
+          </p>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="inline-block w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-secondary uppercase font-bold tracking-tight">Heavy Hazard</span>
+</div>
+</div>
+<!-- KPI 6: Bench Clean Altitude AQI -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div class="absolute top-0 left-0 right-0 h-1 bg-primary"></div>
+<div class="flex items-center justify-between text-outline">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-bold">Bench Ridge AQI</span>
+<span class="material-symbols-outlined text-[18px] text-primary">filter_drama</span>
+</div>
+<div class="my-space-sm">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-primary font-extrabold">42</span>
+<span class="font-body-sm text-body-sm text-primary font-bold">AQI</span>
+</div>
+<p class="font-label-sm text-label-sm text-primary font-semibold mt-space-xs">
+            PM2.5: 10.1 µg/m³ (Above Lid)
+          </p>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="inline-block w-2 h-2 rounded-full bg-primary animate-ping"></span>
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-tight">Optimal Pure</span>
+</div>
+</div>
+</section>
+<!-- SECTION 2: ROUTE MAP & COMMUTE EXPOSURE COMPARISON -->
+<section class="flex flex-col gap-space-md">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold">SPATIAL EXPOSURE ENGINE</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold">Live Commute Vector Comparison</h2>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-label-sm text-label-sm text-outline">Simulation Departure:</span>
+<span class="px-space-sm py-space-xs rounded bg-surface-container-high text-on-surface font-label-md text-label-md font-semibold">Immediate (+0m)</span>
+<span class="px-space-sm py-space-xs rounded bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md shadow-sm">EV HVAC HEPA Active</span>
+</div>
+</div>
+<!-- Vector Map & Interactive Canvas Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md">
+<!-- Center-left Map Viewport (7 cols) -->
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-xl p-space-md shadow-md flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between pb-space-sm border-b border-surface-container-high">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">layers</span>
+<span class="font-label-md text-label-md text-on-surface font-bold">Basin Vertical Stratification Map</span>
+<span class="font-label-sm text-label-sm px-space-xs py-0.5 rounded bg-surface-container-high text-on-surface-variant">LIDAR 3D</span>
+</div>
+<div class="flex items-center gap-space-xs text-label-sm font-label-sm">
+<span class="w-3 h-1 bg-secondary rounded-full inline-block"></span>
+<span class="text-on-surface-variant">Valley Floor (Hazard)</span>
+<span class="w-3 h-1 bg-primary rounded-full inline-block ml-space-xs"></span>
+<span class="text-on-surface-variant">Ridge Crest (Clean)</span>
+</div>
+</div>
+<!-- Inline Stylized Topographical & Corridor Route Vector Map -->
+<div class="relative w-full h-80 my-space-sm bg-surface-container-low rounded-lg overflow-hidden flex items-center justify-center p-space-sm">
+<svg class="w-full h-full text-on-surface" fill="none" viewbox="0 0 700 320" xmlns="http://www.w3.org/2000/svg">
+<!-- Topography Contours -->
+<path d="M0 60 Q150 40 320 110 T700 80" stroke="#cbd5e1" stroke-dasharray="3 3" stroke-width="1.5"></path>
+<path d="M0 120 Q180 90 350 180 T700 140" stroke="#cbd5e1" stroke-dasharray="3 3" stroke-width="1.5"></path>
+<path d="M0 240 Q220 210 400 280 T700 250" stroke="#cbd5e1" stroke-dasharray="3 3" stroke-width="1.5"></path>
+<!-- Shaded valley trapping layer -->
+<path d="M40 300 C120 290 280 295 440 290 C560 285 640 290 660 300 L660 320 L40 320 Z" fill="#bb0112" fill-opacity="0.08"></path>
+<rect fill="#bb0112" fill-opacity="0.05" height="95" rx="6" width="600" x="50" y="195"></rect>
+<text fill="#bb0112" font-size="11" font-weight="700" letter-spacing="0.05em" x="65" y="215">THERMAL INVERSION BASIN TRAP (CEILING: 420m MSL)</text>
+<line stroke="#bb0112" stroke-dasharray="4 2" stroke-width="1" x1="50" x2="650" y1="195" y2="195"></line>
+<!-- Foothill Ridge Line (Clean Elevated Zone) -->
+<path d="M60 70 Q240 40 450 65 T640 90" stroke="#006948" stroke-linecap="round" stroke-width="3"></path>
+<circle cx="60" cy="70" fill="#006948" r="5"></circle>
+<circle cx="640" cy="90" fill="#006948" r="5"></circle>
+<!-- Clean Waypoints on Bench -->
+<circle cx="250" cy="52" fill="#85f8c4" r="3"></circle>
+<circle cx="450" cy="65" fill="#85f8c4" r="3"></circle>
+<text fill="#006948" font-size="11" font-weight="700" x="240" y="42">640m MSL (ABOVE LID)</text>
+<text fill="#006948" font-size="10" font-weight="600" x="470" y="60">PM2.5: 48 µg/m³</text>
+<!-- Valley Floor Route: I-15 Corridor (Hazard) -->
+<path d="M60 240 Q250 250 420 235 T640 260" stroke="#bb0112" stroke-linecap="round" stroke-width="3.5"></path>
+<circle cx="60" cy="240" fill="#bb0112" r="5"></circle>
+<circle cx="640" cy="260" fill="#bb0112" r="5"></circle>
+<!-- High-smog pinch point alerts -->
+<circle cx="260" cy="246" fill="#bb0112" fill-opacity="0.25" r="14"></circle>
+<circle cx="260" cy="246" fill="#bb0112" r="6"></circle>
+<text fill="#bb0112" font-size="10" font-weight="700" x="278" y="244">I-15 / 7200 S CONGESTION SMOG TRAP</text>
+<text fill="#3d4a42" font-size="10" x="278" y="258">Mean PM2.5: 174 µg/m³ (390m MSL)</text>
+<!-- Route Connectors / Ramps -->
+<path d="M60 240 L60 70" stroke="#6d7a72" stroke-dasharray="2 2" stroke-width="1.5"></path>
+<path d="M640 260 L640 90" stroke="#6d7a72" stroke-dasharray="2 2" stroke-width="1.5"></path>
+<!-- Origin & Destination Markers -->
+<g transform="translate(45, 140)">
+<rect fill="#181b25" height="22" rx="4" width="60"></rect>
+<text fill="#faf9ff" font-size="10" font-weight="700" x="6" y="15">ORIGIN: SLC</text>
+</g>
+<g transform="translate(585, 160)">
+<rect fill="#181b25" height="22" rx="4" width="78"></rect>
+<text fill="#faf9ff" font-size="10" font-weight="700" x="6" y="15">DEST: DRAPER</text>
+</g>
+<!-- Dynamic Wind Shear Arrow -->
+<g transform="translate(340, 130)">
+<path d="M0 0 L40 0 M35 -5 L40 0 L35 5" stroke="#3d4a42" stroke-width="1.5"></path>
+<text fill="#3d4a42" font-size="9" font-weight="600" x="-5" y="-8">Nil Valley Wind (0.8 m/s S)</text>
+</g>
+</svg>
+<!-- Floating live HUD over map -->
+<div class="absolute bottom-3 left-3 bg-surface-container-lowest/90 backdrop-blur-md px-space-sm py-space-xs rounded-lg shadow-sm flex items-center gap-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Bench Airflow: Ridge Drift</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Valley Trapping: Critical 100%</span>
+</div>
+</div>
+</div>
+<!-- Bottom map status bar -->
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between text-body-sm text-on-surface-variant pt-space-xs">
+<span class="flex items-center gap-space-xs font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">satellite_alt</span>
+              NOAA High-Res Rapid Refresh (HRRR-Smoke) + 48 On-Ground IoT LIDAR Pods
+            </span>
+<span class="font-label-sm text-label-sm text-outline">Updated 2m ago</span>
+</div>
+</div>
+<!-- Right Side: Side-by-side Commute Options (5 cols) -->
+<div class="lg:col-span-5 flex flex-col gap-space-md">
+<!-- Card A: Arterial I-15 Corridor (Valley Floor Basin Center) - RED ACCENT -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm relative overflow-hidden transition-all hover:shadow-md">
+<div class="absolute top-0 left-0 bottom-0 w-1.5 bg-secondary"></div>
+<div class="pl-space-xs flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md font-bold text-secondary uppercase">Route A: Valley Floor Basin</span>
+<span class="px-space-xs py-0.5 rounded bg-error-container text-secondary font-label-sm text-label-sm font-bold">Extreme Risk</span>
+</div>
+<span class="font-label-md text-label-md text-outline font-semibold">I-15 Corridor</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Valley Floor Basin Center • 390m MSL (Trapped under inversion ceiling)</p>
+<div class="grid grid-cols-3 gap-space-xs my-space-xs bg-surface-container-low p-space-sm rounded-lg">
+<div>
+<span class="font-label-sm text-label-sm text-outline uppercase block">Mean PM2.5</span>
+<span class="font-headline-sm text-headline-sm font-bold text-secondary">174 <span class="font-body-sm text-body-sm">µg/m³</span></span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-outline uppercase block">Drive Time</span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">22 <span class="font-body-sm text-body-sm">min</span></span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-outline uppercase block">Inhaled Dose</span>
+<span class="font-headline-sm text-headline-sm font-bold text-secondary">63.8 <span class="font-body-sm text-body-sm">µg</span></span>
+</div>
+</div>
+<div class="flex items-center justify-between text-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1 text-secondary font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[16px]">dangerous</span> High pulmonary inflammation factor
+                </span>
+<span class="font-label-sm text-label-sm text-outline">Traffic: Heavy Stop-and-Go</span>
+</div>
+</div>
+</div>
+<!-- Card B: Foothill Bench Bypass (Clean Air Zone) - GREEN ACCENT -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm relative overflow-hidden transition-all hover:shadow-md">
+<div class="absolute top-0 left-0 bottom-0 w-1.5 bg-primary"></div>
+<div class="pl-space-xs flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md font-bold text-primary uppercase">Route B: Foothill Bench Bypass</span>
+<span class="px-space-xs py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-bold">Clean Corridor</span>
+</div>
+<span class="font-label-md text-label-md text-primary font-semibold">Elevated Ridgeline</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Foothill Bench Ridge • 640m MSL (Cruises above 420m inversion ceiling)</p>
+<div class="grid grid-cols-3 gap-space-xs my-space-xs bg-surface-container-low p-space-sm rounded-lg">
+<div>
+<span class="font-label-sm text-label-sm text-outline uppercase block">Mean PM2.5</span>
+<span class="font-headline-sm text-headline-sm font-bold text-primary">48 <span class="font-body-sm text-body-sm">µg/m³</span></span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-outline uppercase block">Drive Time</span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">26 <span class="font-body-sm text-body-sm">min (+4m)</span></span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-outline uppercase block">Inhaled Dose</span>
+<span class="font-headline-sm text-headline-sm font-bold text-primary">17.2 <span class="font-body-sm text-body-sm">µg</span></span>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1 text-primary font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[16px]">verified</span> -72% Inhaled Soot Reduction
+                </div>
+<button class="px-space-md py-space-xs rounded-lg bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md transition-all shadow-sm flex items-center gap-space-xs" type="button">
+<span class="material-symbols-outlined text-[16px]">navigation</span>
+                  Engage Clean Corridor Navigation
+                </button>
+</div>
+</div>
+</div>
+<!-- Smart Cabin Exposure Directives Card -->
+<div class="bg-surface-container-low rounded-xl p-space-md shadow-sm flex flex-col gap-space-xs">
+<div class="flex items-center justify-between pb-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface font-bold flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">directions_car</span>
+                Dynamic Vehicle Cabin Directives
+              </span>
+<span class="font-label-sm text-label-sm text-primary font-bold">Auto-Sync Enabled</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-xs">
+<div class="bg-surface-container-lowest p-space-xs rounded-lg flex flex-col gap-0.5">
+<span class="font-label-sm text-label-sm text-secondary font-bold">Mile 2.1 (Valley Floor)</span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold">Force Cabin Recirculation</span>
+<span class="font-body-sm text-body-sm text-outline">Lock outdoor vent flapper</span>
+</div>
+<div class="bg-surface-container-lowest p-space-xs rounded-lg flex flex-col gap-0.5">
+<span class="font-label-sm text-label-sm text-secondary font-bold">Mile 4.8 (High NOx)</span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold">Fan Boost to Level 4 HEPA</span>
+<span class="font-body-sm text-body-sm text-outline">Electrostatic scrubber on</span>
+</div>
+<div class="bg-surface-container-lowest p-space-xs rounded-lg flex flex-col gap-0.5">
+<span class="font-label-sm text-label-sm text-primary font-bold">Above 620m MSL</span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold">Fresh Venting Permitted</span>
+<span class="font-body-sm text-body-sm text-outline">Clean alpine ridge transition</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 3: 72-HOUR TIMELINE FORECAST & THERMAL INVERSION PROFILE -->
+<section class="flex flex-col gap-space-md">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold">METEOROLOGICAL LIDAR PROJECTION</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold">72-Hour Smog &amp; Thermal Inversion Profile</h2>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="px-space-md py-space-xs rounded-lg bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md transition-all shadow-sm flex items-center gap-space-xs" type="button">
+<span class="material-symbols-outlined text-[18px]">hvac</span>
+            Schedule HVAC Purge during Venting Window
+          </button>
+</div>
+</div>
+<!-- Graph Container -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm pb-space-sm border-b border-surface-container-high">
+<div class="flex flex-wrap items-center gap-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Basin Floor PM2.5 (µg/m³)</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="w-3 h-3 rounded-full bg-primary"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Bench Ridgeline PM2.5</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="w-3 h-1 bg-outline rounded-full"></span>
+<span class="font-label-sm text-label-sm text-outline">Inversion Lid Altitude (m MSL)</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="w-3 h-3 rounded bg-primary-fixed"></span>
+<span class="font-label-sm text-label-sm text-primary font-bold">Venting Portal Window</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs text-label-sm font-label-sm text-outline">
+<span>Model: WRF-Chem 1.3km Grid</span>
+<span>•</span>
+<span>Confidence: 94.6%</span>
+</div>
+</div>
+<!-- 72h Timeline SVG Chart -->
+<div class="relative w-full h-72">
+<svg class="w-full h-full" fill="none" viewbox="0 0 1000 280" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<lineargradient id="smogGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#bb0112" stop-opacity="0.25"></stop>
+<stop offset="100%" stop-color="#bb0112" stop-opacity="0.0"></stop>
+</lineargradient>
+<lineargradient id="ventingPortalGlow" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#85f8c4" stop-opacity="0.35"></stop>
+<stop offset="100%" stop-color="#85f8c4" stop-opacity="0.05"></stop>
+</lineargradient>
+</defs>
+<!-- Horizontal Grid lines -->
+<line stroke="#f1f3ff" stroke-width="1" x1="60" x2="980" y1="40" y2="40"></line>
+<line stroke="#f1f3ff" stroke-width="1" x1="60" x2="980" y1="90" y2="90"></line>
+<line stroke="#f1f3ff" stroke-width="1" x1="60" x2="980" y1="140" y2="140"></line>
+<line stroke="#f1f3ff" stroke-width="1" x1="60" x2="980" y1="190" y2="190"></line>
+<line stroke="#dfe2ef" stroke-width="1" x1="60" x2="980" y1="240" y2="240"></line>
+<!-- Y-Axis Labels -->
+<text fill="#6d7a72" font-size="10" font-weight="600" x="15" y="45">200 µg</text>
+<text fill="#6d7a72" font-size="10" font-weight="600" x="15" y="95">150 µg</text>
+<text fill="#6d7a72" font-size="10" font-weight="600" x="15" y="145">100 µg</text>
+<text fill="#6d7a72" font-size="10" font-weight="600" x="15" y="195">50 µg</text>
+<text fill="#6d7a72" font-size="10" font-weight="600" x="25" y="245">0 µg</text>
+<!-- Day Segments (Vertical dividing bars) -->
+<line stroke="#dfe2ef" stroke-dasharray="3 3" x1="360" x2="360" y1="20" y2="240"></line>
+<line stroke="#dfe2ef" stroke-dasharray="3 3" x1="680" x2="680" y1="20" y2="240"></line>
+<!-- Time markers -->
+<text fill="#181b25" font-size="11" font-weight="700" x="70" y="260">TODAY (Thu)</text>
+<text fill="#6d7a72" font-size="10" x="160" y="260">06:00</text>
+<text fill="#006948" font-size="10" font-weight="700" x="230" y="260">14:00 (Vent Portal)</text>
+<text fill="#6d7a72" font-size="10" x="310" y="260">20:00</text>
+<text fill="#181b25" font-size="11" font-weight="700" x="380" y="260">TOMORROW (Fri)</text>
+<text fill="#6d7a72" font-size="10" x="500" y="260">12:00</text>
+<text fill="#6d7a72" font-size="10" x="610" y="260">21:00</text>
+<text fill="#181b25" font-size="11" font-weight="700" x="700" y="260">SATURDAY (Front Flush)</text>
+<text fill="#006948" font-size="10" font-weight="700" x="820" y="260">12:00 (Pacific Front)</text>
+<text fill="#6d7a72" font-size="10" x="940" y="260">23:00</text>
+<!-- HIGHLIGHT: VENTING PORTAL WINDOW (1:45 PM - 3:15 PM) -->
+<rect fill="url(#ventingPortalGlow)" height="215" rx="4" width="70" x="210" y="25"></rect>
+<line stroke="#00855d" stroke-dasharray="2 2" x1="210" x2="210" y1="25" y2="240"></line>
+<line stroke="#00855d" stroke-dasharray="2 2" x1="280" x2="280" y1="25" y2="240"></line>
+<text fill="#006948" font-size="9" font-weight="700" x="215" y="38">SOLAR EXPANSION</text>
+<text fill="#006948" font-size="9" x="215" y="50">1:45 PM - 3:15 PM</text>
+<!-- PACIFIC COLD FRONT FLUSH ZONE -->
+<rect fill="#85f8c4" fill-opacity="0.15" height="215" rx="4" width="180" x="790" y="25"></rect>
+<text fill="#006948" font-size="11" font-weight="700" x="800" y="45">ATMOSPHERIC FLUSH EVENT</text>
+<text fill="#3d4a42" font-size="10" x="800" y="60">Wind Shear &gt; 12 m/s • Full Scour</text>
+<!-- Trapping Lid Line (420m MSL) with Solar Dip -->
+<path d="M60 170 C140 170 190 175 210 130 C240 70 260 70 280 135 C300 175 360 180 500 185 C620 190 700 195 780 160 C820 90 900 60 980 40" stroke="#6d7a72" stroke-dasharray="4 4" stroke-width="2"></path>
+<text fill="#6d7a72" font-size="9" font-weight="700" x="70" y="165">INVERSION LID (420m MSL)</text>
+<!-- Basin Floor PM2.5 Curve (Red) with diurnal peaks -->
+<path d="M60 75 C100 65 140 55 180 70 C210 90 230 150 250 160 C270 145 300 80 340 65 C400 50 480 60 540 68 C620 80 680 70 750 90 C780 110 820 200 880 225 C920 232 960 235 980 235" fill="none" stroke="#bb0112" stroke-width="3"></path>
+<!-- Shaded Area Under Red Curve -->
+<path d="M60 75 C100 65 140 55 180 70 C210 90 230 150 250 160 C270 145 300 80 340 65 C400 50 480 60 540 68 C620 80 680 70 750 90 C780 110 820 200 880 225 C920 232 960 235 980 235 L980 240 L60 240 Z" fill="url(#smogGradient)"></path>
+<!-- Bench Ridgeline PM2.5 Curve (Green) -->
+<path d="M60 200 C120 195 180 198 240 190 C320 185 420 195 520 205 C620 210 720 215 800 222 C880 228 940 235 980 238" fill="none" stroke="#006948" stroke-width="2.5"></path>
+<!-- Current Time Pointer -->
+<line stroke="#181b25" stroke-width="2" x1="120" x2="120" y1="30" y2="240"></line>
+<polygon fill="#181b25" points="115,20 125,20 120,30"></polygon>
+<text fill="#181b25" font-size="9" font-weight="700" x="126" y="28">NOW (08:30)</text>
+</svg>
+</div>
+<!-- Timeline Descriptive Strip -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md pt-space-xs">
+<div class="flex items-start gap-space-sm bg-surface-container-low p-space-sm rounded-lg">
+<span class="material-symbols-outlined text-secondary text-[24px]">thermostat</span>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-bold block">Diurnal Night Compression</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Cold ground radiation strengthens inversion overnight. Peak woodsmoke particulates collect between 06:00 and 09:30 AM.</p>
+</div>
+</div>
+<div class="flex items-start gap-space-sm bg-surface-container-low p-space-sm rounded-lg">
+<span class="material-symbols-outlined text-primary text-[24px]">sunny</span>
+<div>
+<span class="font-label-md text-label-md text-primary font-bold block">Solar Venting Window (13:45 - 15:15)</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Solar irradiance temporarily expands the boundary lid from 420m to 780m. Optimal 90-minute window for indoor fresh-air exchanges.</p>
+</div>
+</div>
+<div class="flex items-start gap-space-sm bg-surface-container-low p-space-sm rounded-lg">
+<span class="material-symbols-outlined text-primary text-[24px]">air</span>
+<div>
+<span class="font-label-md text-label-md text-primary font-bold block">Full Scour Front (+38.5 hrs)</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Strong baroclinic Pacific frontal passage will generate vertical mixing winds &gt;12 m/s, dropping basin PM2.5 below 12 µg/m³.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 4: COMMUNITY SMOG SHIELD NETWORK & INCIDENT DISPATCH -->
+<section class="flex flex-col gap-space-md">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold">GRID MONITORING COOPERATIVE</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold">Community Smog Shield Network</h2>
+</div>
+<div class="flex items-center gap-space-xs text-body-sm text-outline">
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+<span>512 Active Laser Scatter Sensors Online</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Community Station 1: Red Outlier -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div class="absolute top-0 left-0 right-0 h-1 bg-secondary"></div>
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm px-space-xs py-0.5 rounded bg-error-container text-secondary font-bold">Station #088 - Industrial Spur</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">report</span> Violation
+              </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Rose Park / Rail Corridor</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Heavy diesel soot stagnation trapped against freeway barrier wall. Unfiltered diesel generator suspected.</p>
+</div>
+<div class="mt-space-md pt-space-sm border-t border-surface-container-high flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-outline block">Local PM2.5</span>
+<span class="font-headline-md text-headline-md font-extrabold text-secondary">218 <span class="font-body-sm text-body-sm font-normal">µg/m³</span></span>
+</div>
+<button class="px-space-md py-space-xs rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors" type="button">
+              Dispatch Inspector
+            </button>
+</div>
+</div>
+<!-- Community Station 2: School Clean Haven -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div class="absolute top-0 left-0 right-0 h-1 bg-primary"></div>
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm px-space-xs py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-bold">Station #142 - Clean Haven Pod</span>
+<span class="font-label-sm text-label-sm text-primary font-bold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Active Shield
+              </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Wasatch Elementary Positive-Pressure</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Automated MERV-16 positive air barrier maintaining sub-5 µg/m³ clean indoor micro-climate for 620 students.</p>
+</div>
+<div class="mt-space-md pt-space-sm border-t border-surface-container-high flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-outline block">Indoor Air Quality</span>
+<span class="font-headline-md text-headline-md font-extrabold text-primary">12 <span class="font-body-sm text-body-sm font-normal">AQI (Clean)</span></span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-bold bg-primary-fixed/40 px-space-sm py-space-xs rounded">99.1% Purge Efficiency</span>
+</div>
+</div>
+<!-- Community Station 3: Ridgecrest Node -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div class="absolute top-0 left-0 right-0 h-1 bg-tertiary"></div>
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm px-space-xs py-0.5 rounded bg-surface-container-high text-on-surface font-bold">Station #004 - Ridgeline High</span>
+<span class="font-label-sm text-label-sm text-tertiary font-bold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">cloud_sync</span> Above Inversion
+              </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Grandeur Peak Foothill Relay</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Continuous optical thickness measurement node verifying clear boundary conditions above 680m MSL.</p>
+</div>
+<div class="mt-space-md pt-space-sm border-t border-surface-container-high flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-outline block">Elevation Delta</span>
+<span class="font-headline-md text-headline-md font-extrabold text-on-surface">+220 <span class="font-body-sm text-body-sm font-normal">m above lid</span></span>
+</div>
+<button class="px-space-md py-space-xs rounded bg-surface-container text-on-surface hover:bg-surface-container-high font-label-md text-label-md transition-colors" type="button">
+              View Ceilometer Stream
+            </button>
+</div>
+</div>
+</div>
+</section>
+<!-- AUTOMATED INVERSION PROTOCOL SUMMARY BANNER -->
+<section class="bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm border border-surface-container-high flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-[28px]">shield_with_heart</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">Adaptive Clean-Air Routing Armed</span>
+<p class="font-body-md text-body-md text-on-surface-variant">Your vehicle and home HVAC integrations are automatically synchronized with the 420m trapping boundary schedule.</p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm flex-shrink-0">
+<button class="px-space-lg py-space-sm rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors" type="button">
+          Download Speciation Report (.CSV)
+        </button>
+<button class="px-space-lg py-space-sm rounded-lg bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md transition-all shadow-sm" type="button">
+          Export Telemetry API
+        </button>
+</div>
+</section>
+</div>
+</div>
+<script>
+  // Simple micro-interaction for basin filter switcher
+  document.querySelectorAll('section button').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      if (this.textContent.includes('Basin') || this.textContent.includes('Valley') || this.textContent.includes('Milan') || this.textContent.includes('Delhi')) {
+        this.parentElement.querySelectorAll('button').forEach(b => {
+          b.classList.remove('bg-surface-container-lowest', 'text-on-surface', 'shadow-sm');
+          b.classList.add('text-on-surface-variant');
+        });
+        this.classList.add('bg-surface-container-lowest', 'text-on-surface', 'shadow-sm');
+        this.classList.remove('text-on-surface-variant');
+      }
+    });
+  });
+</script></main><footer class="w-full bg-surface-container-lowest mt-space-xl shadow-[0_-1px_8px_rgba(0,0,0,0.02)]"><div class="w-full max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop py-space-xl flex flex-col md:flex-row items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><span class="font-headline-sm text-headline-sm text-on-surface">Aetheris</span><span class="font-body-sm text-body-sm text-outline">© 2025 Aetheris Environmental Technologies. All rights reserved.</span></div><div class="flex flex-wrap items-center gap-space-lg"><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="smog-forecast" href="#">Smog Forecast</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="ai-air-nav" href="#">AI Air Nav</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="action-workflows" href="#">Workflows</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="impact-metrics" href="#">Metrics</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="pricing-community" href="#">Community</a></div></div></footer></body></html>

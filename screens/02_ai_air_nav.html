@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"on-primary-fixed-variant":"#005137","background":"#faf9ff","surface-container-highest":"#dfe2ef","on-surface-variant":"#3d4a42","on-error-container":"#93000a","on-secondary-fixed-variant":"#93000b","secondary-container":"#e02928","surface-container-lowest":"#ffffff","surface-tint":"#006c4a","tertiary-fixed":"#cce5ff","inverse-primary":"#68dba9","surface-dim":"#d7d9e7","on-tertiary-fixed-variant":"#004b73","tertiary-fixed-dim":"#93ccff","surface":"#faf9ff","primary":"#006948","error":"#ba1a1a","on-primary":"#ffffff","on-surface":"#181b25","on-background":"#181b25","primary-fixed-dim":"#68dba9","tertiary-container":"#007bb9","surface-variant":"#dfe2ef","outline":"#6d7a72","on-primary-container":"#f5fff7","on-tertiary":"#ffffff","inverse-on-surface":"#eef0fe","error-container":"#ffdad6","surface-container-high":"#e5e8f5","on-secondary-container":"#fffbff","secondary-fixed":"#ffdad6","on-secondary-fixed":"#410002","secondary":"#bb0112","secondary-fixed-dim":"#ffb4ab","outline-variant":"#bccac0","on-tertiary-fixed":"#001d31","on-primary-fixed":"#002114","primary-container":"#00855d","surface-bright":"#faf9ff","on-error":"#ffffff","tertiary":"#006194","inverse-surface":"#2c303a","surface-container-low":"#f1f3ff","surface-container":"#ebedfb","primary-fixed":"#85f8c4","on-tertiary-container":"#fdfcff","on-secondary":"#ffffff"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-md":"1rem","margin-desktop":"3rem","margin-tablet":"2rem","margin":"1rem","gutter":"1rem","space-sm":"0.5rem","space-xl":"2.5rem","space-xs":"0.25rem","gutter-desktop":"1.5rem","space-lg":"1.5rem"},"fontFamily":{"body-lg":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"headline-xl-mobile":["Plus Jakarta Sans"],"headline-xl":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"]},"fontSize":{"body-lg":["16px",{"lineHeight":"26px","letterSpacing":"-0.01em","fontWeight":"400"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"700"}],"body-sm":["12px",{"lineHeight":"18px","letterSpacing":"0em","fontWeight":"400"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"headline-sm":["20px",{"lineHeight":"28px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-lg-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-md":["14px",{"lineHeight":"22px","letterSpacing":"-0.005em","fontWeight":"400"}],"headline-xl-mobile":["30px",{"lineHeight":"38px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-xl":["40px",{"lineHeight":"48px","letterSpacing":"-0.03em","fontWeight":"700"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.025em","fontWeight":"700"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen flex flex-col justify-between"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 w-full max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-lg"><a class="font-headline-md text-headline-md text-on-surface tracking-tight hover:opacity-90 transition-opacity" data-path="smog-forecast" href="#">Aetheris</a></div><nav class="hidden lg:flex items-center gap-space-xs p-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-label-md rounded-lg"><a class="px-space-md py-space-sm font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-lg transition-colors" data-path="smog-forecast" href="#">Smog Forecast</a><a aria-current="page" class="px-space-md py-space-sm transition-colors bg-primary-container text-on-primary-container font-label-md rounded-lg" data-path="ai-air-nav" href="#">AI Air Nav</a><a class="px-space-md py-space-sm font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-lg transition-colors" data-path="action-workflows" href="#">Action Workflows</a><a class="px-space-md py-space-sm font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-lg transition-colors" data-path="impact-metrics" href="#">Impact Metrics</a><a class="px-space-md py-space-sm font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-lg transition-colors" data-path="pricing-community" href="#">Pricing &amp; Community</a></nav><div class="flex items-center gap-space-md"><button aria-label="Notifications" class="p-space-xs rounded-lg text-outline hover:text-on-surface hover:bg-surface-container transition-colors flex items-center justify-center" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span></button><a class="inline-flex items-center justify-center px-space-md py-space-xs rounded-full bg-surface-container-low font-label-md text-label-md text-on-surface hover:bg-surface-container transition-colors" data-path="account" href="#">Dr. Maya</a></div></div></header><main class="w-full pt-16 flex-1 bg-surface"><div class="flex flex-col w-full">
+<!-- Atmospheric Telemetry Bar (Quick Status & Inversion Alert) -->
+<div class="w-full bg-secondary-container/10 px-margin md:px-margin-tablet lg:px-margin-desktop py-space-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm text-secondary">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary"></span>
+</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">CRITICAL THERMAL INVERSION STAGNATION IN EFFECT</span>
+<span class="hidden sm:inline text-on-surface-variant font-body-sm text-body-sm">— Boundary Lid: 420m AGL • Natural Dispersal Index: 0.12</span>
+</div>
+<div class="flex items-center gap-space-md text-on-surface-variant">
+<span class="font-label-md text-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">satellite_alt</span> Sentinel-5P Overpass: +12m
+      </span>
+<span class="font-label-md text-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary">air</span> Fleet Telemetry: 1,420 Nodes Active
+      </span>
+</div>
+</div>
+<!-- Hero Editorial & Copilot Prompt Interface -->
+<div class="w-full max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop pt-space-xl pb-space-lg">
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg pb-space-xl">
+<div class="max-w-3xl space-y-space-sm">
+<div class="inline-flex items-center gap-2 px-space-sm py-space-xs rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm tracking-wide uppercase">
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">neurology</span>
+          GenAI Dynamic Pathing • Real-Time Aerosol Modeling
+        </div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">
+          Breathe Cleaner, Live Smarter in Severe Winter Smog.
+        </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+          Aetheris synthesizes continuous LiDAR soundings, hyper-local street topography, and vehicle cabin aerodynamics to shield your family from toxic fine particulates and winter thermal lid entrapment.
+        </p>
+</div>
+<div class="flex items-center gap-space-md self-start lg:self-auto">
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">verified_user</span>
+</div>
+<div>
+<div class="font-label-sm text-label-sm uppercase text-outline">Household Shield Status</div>
+<div class="font-headline-sm text-headline-sm text-primary flex items-center gap-1">
+              88.4% Shielded <span class="material-symbols-outlined text-[18px]">trending_up</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Command-Search Bar & Preset Query Matrix -->
+<div class="w-full bg-surface-container-lowest p-space-md md:p-space-lg rounded-xl shadow-md space-y-space-md">
+<div class="flex flex-col md:flex-row items-stretch md:items-center gap-space-sm bg-surface-container-low rounded-lg p-space-xs">
+<div class="flex items-center gap-space-sm px-space-sm text-primary">
+<span class="material-symbols-outlined text-[20px]">terminal</span>
+<span class="font-label-md text-label-md font-mono text-outline">aetheris://copilot&gt;</span>
+</div>
+<input class="flex-1 bg-transparent border-0 px-space-xs py-space-sm font-body-md text-body-md text-on-surface focus:outline-none placeholder-outline" id="query-input" placeholder="Ask Copilot for micro-route nav, filtration strategies, or inversion windows..." type="text" value="School drop-off route with lowest PM2.5 right now"/>
+<div class="flex items-center gap-space-xs">
+<button class="p-space-xs text-outline hover:text-on-surface rounded transition-colors" id="btn-clear-query" title="Clear">
+<span class="material-symbols-outlined text-[18px]">backspace</span>
+</button>
+<button class="px-space-lg py-space-sm bg-primary text-on-primary hover:bg-primary-container rounded-lg font-label-md text-label-md flex items-center gap-space-xs shadow-sm transition-all active:scale-[0.98]" id="btn-synthesize">
+<span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+<span>Synthesize Plan</span>
+</button>
+</div>
+</div>
+<!-- Presets Chips -->
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline mr-space-xs">Suggested Inquiries:</span>
+<button class="preset-chip px-space-sm py-space-xs rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm hover:bg-surface-container-high transition-colors flex items-center gap-1" data-query="School drop-off route with lowest PM2.5 right now">
+<span class="material-symbols-outlined text-[14px] text-primary">alt_route</span>
+          School drop-off route
+        </button>
+<button class="preset-chip px-space-sm py-space-xs rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm hover:bg-surface-container-high transition-colors flex items-center gap-1" data-query="Compare DIY Corsi-Rosenthal box vs central MERV-13 continuous blower">
+<span class="material-symbols-outlined text-[14px] text-tertiary">airware</span>
+          DIY Corsi-Rosenthal box vs central HVAC
+        </button>
+<button class="preset-chip px-space-sm py-space-xs rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm hover:bg-surface-container-high transition-colors flex items-center gap-1" data-query="Safe indoor cardio windows during inversion thermal ceiling 420m">
+<span class="material-symbols-outlined text-[14px] text-secondary">fitness_center</span>
+          Safe indoor cardio
+        </button>
+<button class="preset-chip px-space-sm py-space-xs rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm hover:bg-surface-container-high transition-colors flex items-center gap-1" data-query="Inversion duration forecast and cold front arrival vector">
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">thermostat</span>
+          Inversion duration forecast
+        </button>
+</div>
+</div>
+</div>
+<!-- Telemetry Sensor Matrix (4 High-Impact Visual Cards) -->
+<div class="w-full max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop py-space-lg">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter-desktop">
+<!-- Card 1: Outdoor AQI (Red Hazard Vector) -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div class="absolute top-0 left-0 right-0 h-1 bg-secondary"></div>
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Ambient Outdoor</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+              SEVERE HAZARD
+            </span>
+</div>
+<div class="flex items-baseline gap-space-xs pt-space-xs">
+<span class="font-headline-xl text-headline-xl text-secondary">168</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">AQI • PM2.5</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline">Valley floor sensor cluster #09 (State St &amp; 4th South). PM2.5 at 88.4 µg/m³.</p>
+</div>
+<!-- SVG Mini Wave Sparkline -->
+<div class="pt-space-md">
+<div class="h-10 w-full flex items-end">
+<svg class="w-full h-full text-secondary/30" fill="none" viewbox="0 0 120 40">
+<path d="M0,32 Q15,28 30,22 T60,18 T90,8 T120,4" fill="none" stroke="currentColor" stroke-width="2.5"></path>
+<path d="M0,32 Q15,28 30,22 T60,18 T90,8 T120,4 L120,40 L0,40 Z" fill="currentColor" opacity="0.15"></path>
+</svg>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm text-outline pt-1">
+<span>04:00 (112)</span>
+<span class="text-secondary font-label-md">+49.8% vs 24h avg</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Indoor Shielded AQI (Emerald Oasis) -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div class="absolute top-0 left-0 right-0 h-1 bg-primary"></div>
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Shielded Sanctuary</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+              PURIFIED
+            </span>
+</div>
+<div class="flex items-baseline gap-space-xs pt-space-xs">
+<span class="font-headline-xl text-headline-xl text-primary">32</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">AQI • Good</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline">Living Area + Nursery. Dual HEPA pulse holding micro-differential pressure.</p>
+</div>
+<!-- Metric Delta Comparison -->
+<div class="pt-space-md space-y-space-xs">
+<div class="flex justify-between items-center font-label-md text-label-md">
+<span class="text-on-surface">Net Inhaled Reduction</span>
+<span class="text-primary font-headline-sm text-headline-sm">-81%</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 81%;"></div>
+</div>
+<span class="font-body-sm text-body-sm text-outline block text-right">Target 5.0 µg/m³ achieved</span>
+</div>
+</div>
+<!-- Card 3: Inversion Stagnation Index -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div class="absolute top-0 left-0 right-0 h-1 bg-tertiary"></div>
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Atmospheric Ceiling</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm">
+              TRAPPED LID
+            </span>
+</div>
+<div class="flex items-baseline gap-space-xs pt-space-xs">
+<span class="font-headline-xl text-headline-xl text-on-surface">36h</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Duration Hold</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline">Thermal layer at 420m AGL. Ventilation wind &lt; 1.8 kts. Low mixing depth.</p>
+</div>
+<div class="pt-space-md">
+<div class="flex items-center gap-space-sm p-space-xs bg-surface-container rounded-lg">
+<span class="material-symbols-outlined text-tertiary text-[20px]">cyclone</span>
+<div class="text-on-surface font-body-sm text-body-sm">
+              Cold Front arrival: <strong class="text-on-surface">Thursday 14:00</strong>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 4: Pediatric Risk Matrix -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div class="absolute top-0 left-0 right-0 h-1 bg-secondary"></div>
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Pediatric Lung Matrix</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm">
+              TIER 3 WARNING
+            </span>
+</div>
+<div class="flex items-baseline gap-space-xs pt-space-xs">
+<span class="font-headline-xl text-headline-xl text-secondary">Elevated</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline">Alveolar deposition hazard for ages &lt; 12 without N95 micro-valved respirator.</p>
+</div>
+<div class="pt-space-md">
+<div class="grid grid-cols-4 gap-1 py-1">
+<div class="h-2 rounded bg-surface-container"></div>
+<div class="h-2 rounded bg-surface-container"></div>
+<div class="h-2 rounded bg-secondary"></div>
+<div class="h-2 rounded bg-surface-container"></div>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm text-outline pt-1">
+<span>Low</span>
+<span>Moderate</span>
+<span class="text-secondary font-bold">Tier 3</span>
+<span>Critical</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Active Query Synthesis Result: Salt Lake Valley Microclimate -->
+<div class="w-full max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop py-space-lg">
+<div class="bg-surface-container-lowest rounded-xl shadow-md p-space-lg md:p-space-xl space-y-space-lg">
+<!-- Synthesis Header -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md pb-space-md border-b border-surface-container">
+<div class="space-y-space-xs">
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-primary uppercase tracking-wider">
+<span class="material-symbols-outlined text-[16px]">model_training</span>
+            GenAI Real-Time Microclimate Synthesis
+          </div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">
+            Salt Lake Valley Inversion Analysis
+          </h2>
+<div class="flex flex-wrap items-center gap-space-sm font-body-sm text-body-sm text-on-surface-variant">
+<span>Thermal Ceiling: <strong>420m</strong></span>
+<span>•</span>
+<span>Floor PM2.5: <strong class="text-secondary">84.2 µg/m³</strong></span>
+<span>•</span>
+<span>Bench AQI: <strong class="text-primary">48 Good</strong></span>
+<span>•</span>
+<span class="text-outline">Latency: 140ms • Aetheris Core 4.8-V</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-space-sm bg-surface-container text-on-surface hover:bg-surface-container-high rounded-lg font-label-md text-label-md flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[18px]">share</span> Export Telemetry
+          </button>
+<button class="px-space-md py-space-sm bg-primary text-on-primary hover:bg-primary-container rounded-lg font-label-md text-label-md flex items-center gap-1 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">sync</span> Push to In-Car OS
+          </button>
+</div>
+</div>
+<!-- Synthesis Map & Microclimate Visualizer -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop items-stretch">
+<!-- Interactive Map Visual with elevation stratifications -->
+<div class="lg:col-span-7 flex flex-col">
+<div class="relative w-full h-80 rounded-xl overflow-hidden bg-surface-container shadow-inner">
+<div class="w-full h-full bg-cover bg-center" data-location="Salt Lake City, Utah" style=""></div>
+<!-- Stratified Inversion Overlay Simulator -->
+<div class="absolute inset-0 bg-gradient-to-t from-secondary/40 via-surface-container-lowest/10 to-primary/20 pointer-events-none"></div>
+<!-- Map Waypoint Float Pins -->
+<div class="absolute bottom-6 left-8 bg-surface-container-lowest/95 backdrop-blur-md p-space-sm rounded-lg shadow-md max-w-xs">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-secondary animate-ping"></span>
+<span class="font-label-md text-label-md text-secondary">Valley Valley Basin (Hazard)</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface mt-1">Trapped Diesel soot &amp; ammonium nitrate aerosols concentrated under 400m.</p>
+</div>
+<div class="absolute top-6 right-8 bg-surface-container-lowest/95 backdrop-blur-md p-space-sm rounded-lg shadow-md max-w-xs">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-primary"></span>
+<span class="font-label-md text-label-md text-primary">Wasatch Bench (Escaped Cap)</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface mt-1">Elevation 1,560m: Pristine alpine air above the thermal lid layer.</p>
+</div>
+</div>
+<span class="font-body-sm text-body-sm text-outline mt-2 italic">Real-time LIDAR vertical backscatter profile projected across Salt Lake County transit grid.</span>
+</div>
+<!-- 3 Specific Actionable Recommendations -->
+<div class="lg:col-span-5 flex flex-col justify-between gap-space-sm">
+<!-- Recommendation 1: Route Re-routing -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed text-on-primary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[22px]">route</span>
+</div>
+<div class="space-y-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold">Route Optimization</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed-variant">-68% PM Inhaled</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Wasatch Bench Cutoff</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Divert transit 140m higher along Foothill Drive. Bypasses I-15 basin soot trap with only +3 min travel duration.
+                </p>
+</div>
+</div>
+</div>
+<!-- Recommendation 2: In-Cabin Protocol -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container text-on-surface flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[22px] text-tertiary">minor_crash</span>
+</div>
+<div class="space-y-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-tertiary uppercase font-bold">Vehicle Cabin Shield</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-semibold">91% Purge Active</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Cabin Recirculation ON</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Close external damper 600m before 400 S underpass. Run fan level 3 with electro-statically charged carbon insert.
+                </p>
+</div>
+</div>
+</div>
+<!-- Recommendation 3: Home Pre-condition -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container text-on-surface flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[22px] text-primary">hvac</span>
+</div>
+<div class="space-y-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold">Smart HVAC Sync</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-semibold">Scheduled 07:30</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Pre-Purge Protocol at 7:30 AM</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Autonomous 30-min continuous MERV-13 cycle prior to family morning stir, scrubbing settling PM0.1 soot.
+                </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- AI Suggested Low-Emission Daily Routines (Split Timelines) -->
+<div class="w-full max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop py-space-xl">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-sm mb-space-lg">
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">Dynamic Schedule Architect</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">AI Suggested Low-Emission Daily Routines</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Calibrated against diurnal ozone drops, diesel transit spikes, and cold air drainage.</p>
+</div>
+<div class="flex items-center gap-space-xs font-label-md text-label-md text-outline">
+<span class="inline-block w-2.5 h-2.5 rounded-full bg-primary"></span> Emission Minimization Active
+      </div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter-desktop">
+<!-- Phase 1: Morning Block -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col justify-between space-y-space-md">
+<div class="space-y-space-md">
+<div class="flex items-center justify-between">
+<span class="px-space-sm py-space-xs rounded bg-surface-container font-label-sm text-label-sm text-on-surface">
+              06:30 – 11:00 AM
+            </span>
+<span class="text-secondary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">warning</span> Peak Inversion
+            </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Morning Commute &amp; School Transit</h3>
+<ul class="space-y-space-sm font-body-sm text-body-sm text-on-surface-variant">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0">check_circle</span>
+<span>Engage Wasatch Bench route at 07:45 AM.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0">check_circle</span>
+<span>Keep residential air exchange dampers closed until 12:30 PM.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0">cancel</span>
+<span>Cancel all outdoor school physical education activities.</span>
+</li>
+</ul>
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between text-on-surface font-label-sm text-label-sm">
+<span>Estimated Inhaled Ultrafine PM</span>
+<span class="text-primary font-bold">12.4 µg (-64%)</span>
+</div>
+</div>
+<button class="w-full py-space-sm bg-primary text-on-primary hover:bg-primary-container rounded-lg font-label-md text-label-md transition-colors mt-space-sm">
+          Adopt Morning Schedule
+        </button>
+</div>
+<!-- Phase 2: Midday & Afternoon Block -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col justify-between space-y-space-md">
+<div class="space-y-space-md">
+<div class="flex items-center justify-between">
+<span class="px-space-sm py-space-xs rounded bg-surface-container font-label-sm text-label-sm text-on-surface">
+              11:30 – 16:30 PM
+            </span>
+<span class="text-primary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">sunny</span> Solar Venting Window
+            </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Midday Solar Dilution &amp; Errands</h3>
+<ul class="space-y-space-sm font-body-sm text-body-sm text-on-surface-variant">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0">check_circle</span>
+<span>Solar heating expands mixing height to 650m — safest errand time.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0">check_circle</span>
+<span>Controlled 10-minute fresh air dilution through primary ERV.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0">check_circle</span>
+<span>Optimal time for short dog walk (stay east of 700 E).</span>
+</li>
+</ul>
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between text-on-surface font-label-sm text-label-sm">
+<span>Estimated Inhaled Ultrafine PM</span>
+<span class="text-primary font-bold">8.1 µg (-78%)</span>
+</div>
+</div>
+<button class="w-full py-space-sm bg-surface-container text-on-surface hover:bg-surface-container-high rounded-lg font-label-md text-label-md transition-colors mt-space-sm">
+          Adopt Midday Schedule
+        </button>
+</div>
+<!-- Phase 3: Evening & Night Block -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col justify-between space-y-space-md">
+<div class="space-y-space-md">
+<div class="flex items-center justify-between">
+<span class="px-space-sm py-space-xs rounded bg-surface-container font-label-sm text-label-sm text-on-surface">
+              17:00 – 23:00 PM
+            </span>
+<span class="text-secondary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">lock</span> Surface Decoupling
+            </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Evening Seal &amp; Recovery Sleep</h3>
+<ul class="space-y-space-sm font-body-sm text-body-sm text-on-surface-variant">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0">check_circle</span>
+<span>Immediate clothes transition upon arrival to prevent tracking PM.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0">check_circle</span>
+<span>Bedroom Corsi-Rosenthal unit switch to Ultra-Quiet CFM level.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0">cancel</span>
+<span>Do not ignite wood-burning appliances or gas ranges without range hood.</span>
+</li>
+</ul>
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between text-on-surface font-label-sm text-label-sm">
+<span>Nighttime Alveolar Shielding</span>
+<span class="text-primary font-bold">99.1% Total</span>
+</div>
+</div>
+<button class="w-full py-space-sm bg-surface-container text-on-surface hover:bg-surface-container-high rounded-lg font-label-md text-label-md transition-colors mt-space-sm">
+          Adopt Evening Schedule
+        </button>
+</div>
+</div>
+</div>
+<!-- Interactive Family Clean Air Dividend Simulator -->
+<div class="w-full max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop pb-space-xl">
+<div class="bg-surface-container-lowest rounded-xl shadow-md p-space-lg md:p-space-xl">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg">
+<!-- Controls Column -->
+<div class="lg:w-1/2 space-y-space-md">
+<div class="space-y-space-xs">
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">
+<span class="material-symbols-outlined text-[18px]">calculate</span>
+              Predictive Health Economics
+            </div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">
+              Family Clean Air Dividend Simulator
+            </h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Tweak filtration intensity and navigation avoidance to calculate cumulative microgram reduction and prevented respiratory irritation events.
+            </p>
+</div>
+<!-- Slider 1: Commute Avoidance -->
+<div class="space-y-1">
+<div class="flex justify-between font-label-md text-label-md">
+<span class="text-on-surface">Route Divergence Tolerance:</span>
+<span class="font-bold text-primary" id="route-time-val">+8 Minutes</span>
+</div>
+<input class="w-full h-2 bg-surface-container rounded-lg appearance-none cursor-pointer accent-primary" id="slider-route" max="20" min="0" type="range" value="8"/>
+<div class="flex justify-between text-outline font-label-sm text-label-sm">
+<span>Direct Fast (High PM)</span>
+<span>Mid Elevation Bypasses</span>
+<span>Maximum Alpine Arc</span>
+</div>
+</div>
+<!-- Slider 2: Indoor Air Changes (CADR) -->
+<div class="space-y-1">
+<div class="flex justify-between font-label-md text-label-md">
+<span class="text-on-surface">Indoor Air Exchange Rate (ACH):</span>
+<span class="font-bold text-primary" id="ach-val">4.5 ACH (HEPA+MERV)</span>
+</div>
+<input class="w-full h-2 bg-surface-container rounded-lg appearance-none cursor-pointer accent-primary" id="slider-ach" max="8" min="1" type="range" value="4"/>
+<div class="flex justify-between text-outline font-label-sm text-label-sm">
+<span>Standard HVAC (1.0)</span>
+<span>Optimized (4.5)</span>
+<span>Hospital Grade (8.0)</span>
+</div>
+</div>
+<!-- Slider 3: Household Members Protected -->
+<div class="space-y-1">
+<div class="flex justify-between font-label-md text-label-md">
+<span class="text-on-surface">Household Dependents (Pediatric/Senior):</span>
+<span class="font-bold text-primary" id="family-count-val">3 Individuals</span>
+</div>
+<input class="w-full h-2 bg-surface-container rounded-lg appearance-none cursor-pointer accent-primary" id="slider-family" max="6" min="1" type="range" value="3"/>
+</div>
+</div>
+<!-- Calculated Live Metrics Column -->
+<div class="lg:w-5/12 bg-surface-container-low p-space-lg rounded-xl space-y-space-md">
+<h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center justify-between">
+<span>30-Day Winter Dividend</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed-variant">VALIDATED MODEL</span>
+</h3>
+<div class="grid grid-cols-2 gap-space-md">
+<div class="p-space-md bg-surface-container-lowest rounded-lg shadow-sm">
+<span class="font-label-sm text-label-sm text-outline uppercase block">Particulates Filtered</span>
+<span class="font-headline-md text-headline-md text-primary font-bold" id="metric-pm-mass">142.8 mg</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block mt-1">Carcinogenic soot stopped</span>
+</div>
+<div class="p-space-md bg-surface-container-lowest rounded-lg shadow-sm">
+<span class="font-label-sm text-label-sm text-outline uppercase block">Pediatric Risk Ratio</span>
+<span class="font-headline-md text-headline-md text-primary font-bold" id="metric-risk-ratio">0.14x</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block mt-1">vs unshielded neighbor</span>
+</div>
+<div class="p-space-md bg-surface-container-lowest rounded-lg shadow-sm">
+<span class="font-label-sm text-label-sm text-outline uppercase block">Est. Bronchial Flare-Ups</span>
+<span class="font-headline-md text-headline-md text-on-surface font-bold" id="metric-flareups">0 Events</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block mt-1">Down from est. 4.2</span>
+</div>
+<div class="p-space-md bg-surface-container-lowest rounded-lg shadow-sm">
+<span class="font-label-sm text-label-sm text-outline uppercase block">Clean Air Hours Gained</span>
+<span class="font-headline-md text-headline-md text-on-surface font-bold" id="metric-clean-hours">612 hrs</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block mt-1">Sub-10 µg/m³ air</span>
+</div>
+</div>
+<div class="pt-space-xs">
+<button class="w-full py-space-sm bg-primary text-on-primary hover:bg-primary-container rounded-lg font-label-md text-label-md shadow-sm transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">lock_reset</span>
+              Lock in Family Smog Mitigation Plan
+            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Micro-Scripts for Live Interactivity -->
+<script>
+    (function initAirNav() {
+      // Query bar interactions
+      const queryInput = document.getElementById('query-input');
+      const btnClear = document.getElementById('btn-clear-query');
+      const btnSynth = document.getElementById('btn-synthesize');
+      const presetChips = document.querySelectorAll('.preset-chip');
+
+      if (btnClear && queryInput) {
+        btnClear.addEventListener('click', () => {
+          queryInput.value = '';
+          queryInput.focus();
+        });
+      }
+
+      presetChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          const q = chip.getAttribute('data-query');
+          if (q && queryInput) {
+            queryInput.value = q;
+            triggerSynthesisAnimation();
+          }
+        });
+      });
+
+      if (btnSynth) {
+        btnSynth.addEventListener('click', () => {
+          triggerSynthesisAnimation();
+        });
+      }
+
+      function triggerSynthesisAnimation() {
+        if (!btnSynth) return;
+        const originalText = btnSynth.innerHTML;
+        btnSynth.innerHTML = `<span class="material-symbols-outlined animate-spin text-[18px]">progress_activity</span> Synthesizing...`;
+        btnSynth.disabled = true;
+        setTimeout(() => {
+          btnSynth.innerHTML = `<span class="material-symbols-outlined text-[18px]">check</span> Optimized!`;
+          setTimeout(() => {
+            btnSynth.innerHTML = originalText;
+            btnSynth.disabled = false;
+          }, 1500);
+        }, 800);
+      }
+
+      // Dividend Simulator Sliders
+      const sliderRoute = document.getElementById('slider-route');
+      const sliderAch = document.getElementById('slider-ach');
+      const sliderFamily = document.getElementById('slider-family');
+
+      const routeTimeVal = document.getElementById('route-time-val');
+      const achVal = document.getElementById('ach-val');
+      const familyCountVal = document.getElementById('family-count-val');
+
+      const metricPmMass = document.getElementById('metric-pm-mass');
+      const metricRiskRatio = document.getElementById('metric-risk-ratio');
+      const metricFlareups = document.getElementById('metric-flareups');
+      const metricCleanHours = document.getElementById('metric-clean-hours');
+
+      function updateDividend() {
+        if (!sliderRoute || !sliderAch || !sliderFamily) return;
+        const route = parseInt(sliderRoute.value, 10);
+        const ach = parseInt(sliderAch.value, 10);
+        const family = parseInt(sliderFamily.value, 10);
+
+        if (routeTimeVal) routeTimeVal.textContent = `+${route} Minutes`;
+        if (achVal) achVal.textContent = `${ach}.5 ACH (HEPA+MERV)`;
+        if (familyCountVal) familyCountVal.textContent = `${family} ${family === 1 ? 'Individual' : 'Individuals'}`;
+
+        // Compute simulated outputs
+        const mass = ((route * 3.5) + (ach * 18.2)) * (family * 0.7);
+        const risk = Math.max(0.04, (1.0 - (route * 0.03 + ach * 0.08))).toFixed(2);
+        const flare = Math.max(0, Math.round((4.2 - (ach * 0.5 + route * 0.15)) * (family / 2)));
+        const hours = Math.min(720, Math.round(300 + (ach * 45) + (route * 6)));
+
+        if (metricPmMass) metricPmMass.textContent = `${mass.toFixed(1)} mg`;
+        if (metricRiskRatio) metricRiskRatio.textContent = `${risk}x`;
+        if (metricFlareups) metricFlareups.textContent = `${flare} Events`;
+        if (metricCleanHours) metricCleanHours.textContent = `${hours} hrs`;
+      }
+
+      if (sliderRoute) sliderRoute.addEventListener('input', updateDividend);
+      if (sliderAch) sliderAch.addEventListener('input', updateDividend);
+      if (sliderFamily) sliderFamily.addEventListener('input', updateDividend);
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest mt-space-xl shadow-[0_-1px_8px_rgba(0,0,0,0.02)]"><div class="w-full max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop py-space-xl flex flex-col md:flex-row items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><span class="font-headline-sm text-headline-sm text-on-surface">Aetheris</span><span class="font-body-sm text-body-sm text-outline">© 2025 Aetheris Environmental Technologies. All rights reserved.</span></div><div class="flex flex-wrap items-center gap-space-lg"><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="smog-forecast" href="#">Smog Forecast</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="ai-air-nav" href="#">AI Air Nav</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="action-workflows" href="#">Workflows</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="impact-metrics" href="#">Metrics</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="pricing-community" href="#">Community</a></div></div></footer></body></html>

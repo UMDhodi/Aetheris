@@ -1,0 +1,29 @@
+# Environment & Secrets (NEVER commit real keys)
+.env
+.env.*
+!.env.example
+backend/.env
+frontend/.env*
+
+# Dependencies & Build Outputs
+node_modules/
+frontend/node_modules/
+.next/
+frontend/.next/
+out/
+dist/
+build/
+
+# Python Cache & Local Databases
+__pycache__/
+*.py[cod]
+*.db
+*.sqlite
+*.sqlite3
+.venv/
+venv/
+
+# Scratch & Editor Files
+scratch/
+.vscode/
+*.log

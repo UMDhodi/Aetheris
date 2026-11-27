@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"on-primary-fixed-variant":"#005137","background":"#faf9ff","surface-container-highest":"#dfe2ef","on-surface-variant":"#3d4a42","on-error-container":"#93000a","on-secondary-fixed-variant":"#93000b","secondary-container":"#e02928","surface-container-lowest":"#ffffff","surface-tint":"#006c4a","tertiary-fixed":"#cce5ff","inverse-primary":"#68dba9","surface-dim":"#d7d9e7","on-tertiary-fixed-variant":"#004b73","tertiary-fixed-dim":"#93ccff","surface":"#faf9ff","primary":"#006948","error":"#ba1a1a","on-primary":"#ffffff","on-surface":"#181b25","on-background":"#181b25","primary-fixed-dim":"#68dba9","tertiary-container":"#007bb9","surface-variant":"#dfe2ef","outline":"#6d7a72","on-primary-container":"#f5fff7","on-tertiary":"#ffffff","inverse-on-surface":"#eef0fe","error-container":"#ffdad6","surface-container-high":"#e5e8f5","on-secondary-container":"#fffbff","secondary-fixed":"#ffdad6","on-secondary-fixed":"#410002","secondary":"#bb0112","secondary-fixed-dim":"#ffb4ab","outline-variant":"#bccac0","on-tertiary-fixed":"#001d31","on-primary-fixed":"#002114","primary-container":"#00855d","surface-bright":"#faf9ff","on-error":"#ffffff","tertiary":"#006194","inverse-surface":"#2c303a","surface-container-low":"#f1f3ff","surface-container":"#ebedfb","primary-fixed":"#85f8c4","on-tertiary-container":"#fdfcff","on-secondary":"#ffffff"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-md":"1rem","margin-desktop":"3rem","margin-tablet":"2rem","margin":"1rem","gutter":"1rem","space-sm":"0.5rem","space-xl":"2.5rem","space-xs":"0.25rem","gutter-desktop":"1.5rem","space-lg":"1.5rem"},"fontFamily":{"body-lg":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"headline-xl-mobile":["Plus Jakarta Sans"],"headline-xl":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"]},"fontSize":{"body-lg":["16px",{"lineHeight":"26px","letterSpacing":"-0.01em","fontWeight":"400"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"700"}],"body-sm":["12px",{"lineHeight":"18px","letterSpacing":"0em","fontWeight":"400"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"headline-sm":["20px",{"lineHeight":"28px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-lg-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-md":["14px",{"lineHeight":"22px","letterSpacing":"-0.005em","fontWeight":"400"}],"headline-xl-mobile":["30px",{"lineHeight":"38px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-xl":["40px",{"lineHeight":"48px","letterSpacing":"-0.03em","fontWeight":"700"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.025em","fontWeight":"700"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen flex flex-col justify-between"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 w-full max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-lg"><a class="font-headline-md text-headline-md text-on-surface tracking-tight hover:opacity-90 transition-opacity" data-path="smog-forecast" href="#">Aetheris</a></div><nav class="hidden lg:flex items-center gap-space-xs p-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-label-md rounded-lg"><a class="px-space-md py-space-sm font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-lg transition-colors" data-path="smog-forecast" href="#">Smog Forecast</a><a class="px-space-md py-space-sm font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-lg transition-colors" data-path="ai-air-nav" href="#">AI Air Nav</a><a aria-current="page" class="px-space-md py-space-sm transition-colors bg-primary-container text-on-primary-container font-label-md rounded-lg" data-path="action-workflows" href="#">Action Workflows</a><a class="px-space-md py-space-sm font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-lg transition-colors" data-path="impact-metrics" href="#">Impact Metrics</a><a class="px-space-md py-space-sm font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-lg transition-colors" data-path="pricing-community" href="#">Pricing &amp; Community</a></nav><div class="flex items-center gap-space-md"><button aria-label="Notifications" class="p-space-xs rounded-lg text-outline hover:text-on-surface hover:bg-surface-container transition-colors flex items-center justify-center" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span></button><a class="inline-flex items-center justify-center px-space-md py-space-xs rounded-full bg-surface-container-low font-label-md text-label-md text-on-surface hover:bg-surface-container transition-colors" data-path="account" href="#">Dr. Maya</a></div></div></header><main class="w-full pt-16 flex-1 bg-surface"><div class="flex flex-col w-full">
+<!-- Top Exposure Reduction Impact Banner & Header -->
+<section class="w-full max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop py-space-lg">
+<div class="relative overflow-hidden rounded-xl bg-surface-container-lowest p-space-lg md:p-space-xl shadow-sm">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg">
+<div class="max-w-3xl space-y-space-xs">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm uppercase tracking-wider">
+<span class="inline-block w-2 h-2 rounded-full bg-secondary animate-ping"></span>
+            Persistent Inversion Episode Active • Tier-4 Stagnation
+          </div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
+            Adaptive Winter Smog Workflows &amp; Routine Comparisons
+          </h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+            Side-by-side comparative analysis of traditional vs. GenAI-optimized winter routines, showing direct exposure reduction and family health protection across persistent thermal inversion cycles.
+          </p>
+</div>
+<div class="flex flex-col sm:flex-row lg:flex-col items-start lg:items-end gap-space-xs bg-surface-container-low p-space-md rounded-xl">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Suppression Factor</span>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-xl text-headline-xl text-primary font-bold tracking-tight">-81.4%</span>
+<span class="material-symbols-outlined text-primary text-[28px]">shield</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Inhaled Toxic Inorganics Mitigated</span>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden mt-space-xs">
+<div class="bg-primary h-full rounded-full" style="width: 81.4%;"></div>
+</div>
+</div>
+</div>
+<!-- Quick Interactive Filter Pills -->
+<div class="flex flex-wrap items-center gap-space-xs mt-space-lg pt-space-md">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider mr-space-xs">Workflow Class:</span>
+<button class="scenario-btn px-space-md py-space-xs rounded-full bg-primary text-on-primary font-label-md text-label-md shadow-sm transition-all" id="btn-all" onclick="filterWorkflows('all')" type="button">
+          All Scenarios (3)
+        </button>
+<button class="scenario-btn px-space-md py-space-xs rounded-full bg-surface-container-high text-on-surface font-label-md text-label-md hover:bg-surface-container-highest transition-all" id="btn-commute" onclick="filterWorkflows('commute')" type="button">
+          Commute &amp; School
+        </button>
+<button class="scenario-btn px-space-md py-space-xs rounded-full bg-surface-container-high text-on-surface font-label-md text-label-md hover:bg-surface-container-highest transition-all" id="btn-cooking" onclick="filterWorkflows('cooking')" type="button">
+          Cooking &amp; Heating
+        </button>
+<button class="scenario-btn px-space-md py-space-xs rounded-full bg-surface-container-high text-on-surface font-label-md text-label-md hover:bg-surface-container-highest transition-all" id="btn-fitness" onclick="filterWorkflows('fitness')" type="button">
+          Work &amp; Fitness Ergonomics
+        </button>
+</div>
+</div>
+</section>
+<!-- Side-by-Side Comparative Workflow Stack -->
+<section class="w-full max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop py-space-sm space-y-space-lg">
+<!-- Card 1: School Commute & Activity Flow -->
+<article class="workflow-card bg-surface-container-lowest rounded-xl p-space-md md:p-space-lg shadow-sm transition-all duration-300" data-scenario="commute">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between pb-space-md gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[24px]">directions_car</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Scenario Protocol 01</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">School Morning Commute &amp; Activity Flow</h2>
+</div>
+</div>
+<div class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[16px]">verified_user</span>
+          83% Soot Intake Prevented
+        </div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-space-md mt-space-sm">
+<!-- Traditional Default Routine (Hazard / Warning) -->
+<div class="rounded-xl p-space-md bg-secondary-fixed/40 space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">warning</span>
+<span class="font-label-md text-label-md text-secondary font-bold uppercase tracking-wider">Traditional Default Routine</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Valley Floor Default</span>
+</div>
+<div class="space-y-space-sm">
+<div class="flex items-start gap-space-sm bg-surface-container-lowest/80 p-space-sm rounded-lg">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">garage</span>
+<div class="flex-1">
+<span class="font-label-md text-label-md text-on-surface block">Cold Engine Idling Inside Attached Garage</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Trapped VOCs seep directly through shared drywall into main living quarters.</span>
+</div>
+</div>
+<div class="flex items-start gap-space-sm bg-surface-container-lowest/80 p-space-sm rounded-lg">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">traffic</span>
+<div class="flex-1">
+<span class="font-label-md text-label-md text-on-surface block">Highway Valley Corridor Route (142 µg/m³)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Congested arterial route running directly beneath the primary thermal inversion layer.</span>
+</div>
+</div>
+<div class="flex items-start gap-space-sm bg-surface-container-lowest/80 p-space-sm rounded-lg">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">sports_handball</span>
+<div class="flex-1">
+<span class="font-label-md text-label-md text-on-surface block">Unmonitored Outdoor Recess (64 µg Inhaled)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Heavy exertion during morning peak stagnation directly irritates deep bronchial tissue.</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded-lg flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary font-bold">Total Inhaled Soot Vector</span>
+<span class="font-headline-sm text-headline-sm text-secondary font-bold">64 µg elemental carbon</span>
+</div>
+</div>
+<!-- GenAI Prescriptive Routing (Clean Shield) -->
+<div class="rounded-xl p-space-md bg-primary-fixed/30 space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">verified</span>
+<span class="font-label-md text-label-md text-primary font-bold uppercase tracking-wider">GenAI Prescriptive Routing</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-primary-fixed-variant font-medium">Aetheris Micro-Path v4</span>
+</div>
+<div class="space-y-space-sm">
+<div class="flex items-start gap-space-sm bg-surface-container-lowest/90 p-space-sm rounded-lg">
+<span class="material-symbols-outlined text-primary text-[18px] mt-0.5">electric_car</span>
+<div class="flex-1">
+<span class="font-label-md text-label-md text-on-surface block">Pre-conditioned EV Cabin HEPA Purge</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Automated recirculating purge triggered 10 min prior; interior PM2.5 drops below 2 µg/m³.</span>
+</div>
+</div>
+<div class="flex items-start gap-space-sm bg-surface-container-lowest/90 p-space-sm rounded-lg">
+<span class="material-symbols-outlined text-primary text-[18px] mt-0.5">alt_route</span>
+<div class="flex-1">
+<span class="font-label-md text-label-md text-on-surface block">Greenway Buffer &amp; Ridge Detour (+4 min)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Climbs 120m above the stagnant valley floor inversion cap; ambient particulate sinks to 28 µg/m³.</span>
+</div>
+</div>
+<div class="flex items-start gap-space-sm bg-surface-container-lowest/90 p-space-sm rounded-lg">
+<span class="material-symbols-outlined text-primary text-[18px] mt-0.5">fit_screen</span>
+<div class="flex-1">
+<span class="font-label-md text-label-md text-on-surface block">Indoor Air-Scrubbed Gym Protocol Switch</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Automated campus notification prompts move to central air-purified gymnasium.</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded-lg flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary font-bold">Total Inhaled Soot Vector</span>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">11 µg</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">(-83% soot reduction)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Micro Visual Exposure Trace (SVG) -->
+<div class="mt-space-md pt-space-sm bg-surface-container-low p-space-md rounded-xl">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Continuous Real-Time Microgram Profile (07:00 - 09:30)</span>
+<div class="flex items-center gap-space-md">
+<span class="flex items-center gap-1 font-label-sm text-label-sm text-secondary font-semibold"><span class="w-3 h-0.5 bg-secondary inline-block"></span> Standard Commute</span>
+<span class="flex items-center gap-1 font-label-sm text-label-sm text-primary font-semibold"><span class="w-3 h-0.5 bg-primary inline-block"></span> GenAI Routing</span>
+</div>
+</div>
+<div class="w-full h-16 relative">
+<svg class="w-full h-full" fill="none" preserveaspectratio="none" viewbox="0 0 600 64">
+<!-- Gridlines -->
+<line class="text-surface-variant" stroke="currentColor" stroke-dasharray="4 4" x1="0" x2="600" y1="16" y2="16"></line>
+<line class="text-surface-variant" stroke="currentColor" stroke-dasharray="4 4" x1="0" x2="600" y1="40" y2="40"></line>
+<!-- Traditional Routine Path (Red) -->
+<path class="text-secondary" d="M0,50 Q60,48 120,20 T240,12 T360,18 T480,8 T600,24" fill="none" stroke="currentColor" stroke-width="2.5"></path>
+<!-- GenAI Path (Green) -->
+<path class="text-primary" d="M0,58 Q60,56 120,52 T240,54 T360,50 T480,52 T600,56" fill="none" stroke="currentColor" stroke-width="2.5"></path>
+</svg>
+</div>
+</div>
+</article>
+<!-- Card 2: Home Heating, Searing & Ventilation Cadence -->
+<article class="workflow-card bg-surface-container-lowest rounded-xl p-space-md md:p-space-lg shadow-sm transition-all duration-300" data-scenario="cooking">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between pb-space-md gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[24px]">soup_kitchen</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Scenario Protocol 02</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Home Heating, Searing &amp; Ventilation Cadence</h2>
+</div>
+</div>
+<div class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[16px]">verified_user</span>
+          96% NO2 Spike Suppression
+        </div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-space-md mt-space-sm">
+<!-- Standard Unbuffered Routine -->
+<div class="rounded-xl p-space-md bg-secondary-fixed/40 space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">local_fire_department</span>
+<span class="font-label-md text-label-md text-secondary font-bold uppercase tracking-wider">Standard Unbuffered Routine</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Combustion Overload</span>
+</div>
+<div class="space-y-space-sm">
+<div class="flex items-start gap-space-sm bg-surface-container-lowest/80 p-space-sm rounded-lg">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">gas_meter</span>
+<div class="flex-1">
+<span class="font-label-md text-label-md text-on-surface block">Gas Range High-Heat Searing without Purge</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Generates severe indoor nitrogen dioxide spike (420 ppb NO2) that persists for 3.5 hours.</span>
+</div>
+</div>
+<div class="flex items-start gap-space-sm bg-surface-container-lowest/80 p-space-sm rounded-lg">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">fireplace</span>
+<div class="flex-1">
+<span class="font-label-md text-label-md text-on-surface block">Wood Fireplace "Cozy Atmosphere" Activation</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Adds +310 µg/m³ of ultrafine particulate directly into residential circulation.</span>
+</div>
+</div>
+<div class="flex items-start gap-space-sm bg-surface-container-lowest/80 p-space-sm rounded-lg">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">autorenew</span>
+<div class="flex-1">
+<span class="font-label-md text-label-md text-on-surface block">Intermittent Low-MERV Central HVAC Cycling</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Recirculates 0.3µm sub-micron combustion particles uniformly across sleeping quarters.</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded-lg flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary font-bold">Indoor Peak Contamination</span>
+<span class="font-headline-sm text-headline-sm text-secondary font-bold">420 ppb NO2 • AQI 245</span>
+</div>
+</div>
+<!-- Automated Clean Induction -->
+<div class="rounded-xl p-space-md bg-primary-fixed/30 space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">heat_pump</span>
+<span class="font-label-md text-label-md text-primary font-bold uppercase tracking-wider">Automated Clean Induction Flow</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-primary-fixed-variant font-medium">Smart Sensor Lock</span>
+</div>
+<div class="space-y-space-sm">
+<div class="flex items-start gap-space-sm bg-surface-container-lowest/90 p-space-sm rounded-lg">
+<span class="material-symbols-outlined text-primary text-[18px] mt-0.5">skillet</span>
+<div class="flex-1">
+<span class="font-label-md text-label-md text-on-surface block">Smart Induction + Pre-Purge Hood (7 min prior)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Exhaust hood engages at maximum laminar velocity before surface thermal activation begins.</span>
+</div>
+</div>
+<div class="flex items-start gap-space-sm bg-surface-container-lowest/90 p-space-sm rounded-lg">
+<span class="material-symbols-outlined text-primary text-[18px] mt-0.5">air</span>
+<div class="flex-1">
+<span class="font-label-md text-label-md text-on-surface block">Corsi-Rosenthal Continuous Scrubbing</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Low-sones 520 CFM continuous scrub holds dining and kitchen boundary below PM2.5 ≤ 4.</span>
+</div>
+</div>
+<div class="flex items-start gap-space-sm bg-surface-container-lowest/90 p-space-sm rounded-lg">
+<span class="material-symbols-outlined text-primary text-[18px] mt-0.5">wind_power</span>
+<div class="flex-1">
+<span class="font-label-md text-label-md text-on-surface block">14:00 Thermal Lift Micro-Ventilation Pulse</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">GenAI detects temporary thermal layer inversion breach to exchange outdoor air safely.</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded-lg flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary font-bold">Indoor Peak Contamination</span>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">16 ppb NO2</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">(Pristine Pure AQI 14)</span>
+</div>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 3: Cardiovascular Fitness & Remote Work Ergonomics -->
+<article class="workflow-card bg-surface-container-lowest rounded-xl p-space-md md:p-space-lg shadow-sm transition-all duration-300" data-scenario="fitness">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between pb-space-md gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[24px]">fitness_center</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Scenario Protocol 03</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Cardiovascular Fitness &amp; Remote Work Ergonomics</h2>
+</div>
+</div>
+<div class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[16px]">verified_user</span>
+          Zero Alveolar Soot Deposition
+        </div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-space-md mt-space-sm">
+<!-- Habitual Routine (Red) -->
+<div class="rounded-xl p-space-md bg-secondary-fixed/40 space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">heart_broken</span>
+<span class="font-label-md text-label-md text-secondary font-bold uppercase tracking-wider">Habitual Unaware Routine</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Stagnant Basin Trap</span>
+</div>
+<div class="space-y-space-sm">
+<div class="flex items-start gap-space-sm bg-surface-container-lowest/80 p-space-sm rounded-lg">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">directions_run</span>
+<div class="flex-1">
+<span class="font-label-md text-label-md text-on-surface block">Outdoor Midday 10k Run in Stagnant Valley Floor</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Ventilation rate surges 8x at 135 µg/m³ PM2.5, driving ultra-fine carbon into systemic bloodstream.</span>
+</div>
+</div>
+<div class="flex items-start gap-space-sm bg-surface-container-lowest/80 p-space-sm rounded-lg">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">window</span>
+<div class="flex-1">
+<span class="font-label-md text-label-md text-on-surface block">Open Bedroom Window "Fresh Air" Airing</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Draws heavy sulfate and nitrate particulate straight into sleeping space right before bedtime.</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded-lg flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary font-bold">Systemic Inflammatory Impact</span>
+<span class="font-headline-sm text-headline-sm text-secondary font-bold">Severe • HRV Down 34%</span>
+</div>
+</div>
+<!-- Sanctuary Aerobic Workflow (Green) -->
+<div class="rounded-xl p-space-md bg-primary-fixed/30 space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">monitor_heart</span>
+<span class="font-label-md text-label-md text-primary font-bold uppercase tracking-wider">Sanctuary Aerobic Workflow</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-primary-fixed-variant font-medium">Bio-Protected Ergonomics</span>
+</div>
+<div class="space-y-space-sm">
+<div class="flex items-start gap-space-sm bg-surface-container-lowest/90 p-space-sm rounded-lg">
+<span class="material-symbols-outlined text-primary text-[18px] mt-0.5">home_health</span>
+<div class="flex-1">
+<span class="font-label-md text-label-md text-on-surface block">Micro-Filtered Living Room Cardio Zone</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Indoor smart trainer zone paired with twin HEPA air curtains; particulate locked &lt; 1.2 µg/m³.</span>
+</div>
+</div>
+<div class="flex items-start gap-space-sm bg-surface-container-lowest/90 p-space-sm rounded-lg">
+<span class="material-symbols-outlined text-primary text-[18px] mt-0.5">bedtime</span>
+<div class="flex-1">
+<span class="font-label-md text-label-md text-on-surface block">Positive-Pressure Bedroom Sanctuary</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Micro-positive pressure prevents window draft infiltration while maintaining 580 ppm CO2 via scrubbed intake.</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded-lg flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary font-bold">Systemic Inflammatory Impact</span>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">Neutral</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">(Full HRV Preservation)</span>
+</div>
+</div>
+</div>
+</div>
+</article>
+</section>
+<!-- Section: Indoor Air Quality Engineering Hacks & DIY Schematics -->
+<section class="w-full max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop py-space-xl">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-lg gap-space-sm">
+<div>
+<div class="inline-flex items-center gap-space-xs font-label-sm text-label-sm text-primary font-bold uppercase tracking-wider">
+<span class="material-symbols-outlined text-[16px]">build_circle</span>
+          Field Laboratory Engineering
+        </div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight mt-space-xs">
+          Indoor Air Quality Hacks &amp; Blueprint Schematics
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mt-1">
+          High-performance, cost-effective environmental mitigation blueprints verified against laboratory mass-spectrometer baselines.
+        </p>
+</div>
+<span class="px-space-md py-space-xs rounded-full bg-surface-container-high font-label-md text-label-md text-on-surface">
+        4 Laboratory Blueprints Verified
+      </span>
+</div>
+<!-- Schematics Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Hack 1: Corsi-Rosenthal Box Fan Purifier -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md flex flex-col justify-between shadow-sm hover:shadow-md transition-all">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="w-8 h-8 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-bold text-label-md">01</span>
+<span class="font-label-sm text-label-sm px-space-xs py-0.5 rounded bg-surface-container-high text-on-surface font-semibold">$45 Total Build</span>
+</div>
+<div class="relative h-32 rounded-lg bg-surface-container-low flex items-center justify-center overflow-hidden">
+<img class="object-cover w-full h-full" data-alt="Schematic diagram and clean technical rendering of a Corsi-Rosenthal box fan air cleaner assembled with four white pleated MERV-13 filters arranged as a cube with a top fan and duct tape sealing, modern scientific studio lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRWVz8W1VUB2_nMNv_axHIOk1UD9n8eQCACP6dhVD-fdvnAIv7RVRkEe3b_3miLbt0DgVA8u8w0DCklI6PQU_KAzEse9ED6U6yw6Le8p3NJaKGlkg_O-S8Cu2HEcTnOw80yqJsqA3q-pdXR9bgCWiJPRZXMb5bI1xx6rv4RobL07MaSzjXhH6NqO9L04Rg2BTI02Fkb2UN6M_KScD9i_81_k9iJTl77Y4u9ihosNOa"/>
+<div class="absolute bottom-2 left-2 px-space-xs py-0.5 bg-surface-container-lowest/90 rounded text-label-sm font-label-sm text-on-surface font-bold">
+              CADR: 520 CFM
+            </div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">The $45 MERV-13 Box Fan Purifier</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Quad-filter Corsi-Rosenthal continuous cube. Outperforms commercial units costing $600 with ultra-low backpressure.
+          </p>
+<div class="pt-space-xs space-y-1">
+<div class="flex items-center gap-1.5 text-body-sm font-body-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-[16px]">check_circle</span>
+<span>4x MERV-13 20x20x1 Filters</span>
+</div>
+<div class="flex items-center gap-1.5 text-body-sm font-body-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-[16px]">check_circle</span>
+<span>Standard 20" Box Fan (Top-Mount)</span>
+</div>
+<div class="flex items-center gap-1.5 text-body-sm font-body-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-[16px]">check_circle</span>
+<span>Cardboard Bottom Shroud Plate</span>
+</div>
+</div>
+</div>
+<button class="mt-space-md w-full py-space-xs rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md flex items-center justify-center gap-1 transition-colors" type="button">
+<span>View Blueprint Steps</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+<!-- Hack 2: Thermal Doorway Draft Seals & Positive Pressure -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md flex flex-col justify-between shadow-sm hover:shadow-md transition-all">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="w-8 h-8 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-bold text-label-md">02</span>
+<span class="font-label-sm text-label-sm px-space-xs py-0.5 rounded bg-surface-container-high text-on-surface font-semibold">Isolation Room</span>
+</div>
+<div class="relative h-32 rounded-lg bg-surface-container-low flex items-center justify-center overflow-hidden">
+<img class="object-cover w-full h-full" data-alt="Detailed architectural schematic demonstrating positive air pressure airflow vectors pushing out through weatherstripped doorway silicone seals in a minimalist clean bedroom sanctuary, technical green arrows indicating outgoing air pressure." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrBdFugG8GyaAquPp59BV0FoItkEdEj-Qpem9A_H3LqEL-4yZwzGJmcxNxqR0pC4rdYJm0Z-sP1dTFbQpFTxT2rTkubA00dgfDGyX-u44onoaLS3RdR84UoiiVUqkyDcN_QFh7kfoLoMzwIfwlSEsIFTVIj9Tza4Yjy3vmeeXmzyk8gDUrtlqfiY-5eewczNK7hipGieV0k6tXzBDUCBxjbULixHzzb9SijZdy6IU-"/>
+<div class="absolute bottom-2 left-2 px-space-xs py-0.5 bg-surface-container-lowest/90 rounded text-label-sm font-label-sm text-on-surface font-bold">
+              ΔP: +2.5 Pa
+            </div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Thermal Draft Seals &amp; Positive Pressure</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Converting a master bedroom into an airtight cleanroom envelope during winter stagnation episodes.
+          </p>
+<div class="pt-space-xs space-y-1">
+<div class="flex items-center gap-1.5 text-body-sm font-body-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-[16px]">check_circle</span>
+<span>Silicone sweep base seals</span>
+</div>
+<div class="flex items-center gap-1.5 text-body-sm font-body-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-[16px]">check_circle</span>
+<span>Window insulation shrink film</span>
+</div>
+<div class="flex items-center gap-1.5 text-body-sm font-body-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-[16px]">check_circle</span>
+<span>Scrubbed supply fan intake</span>
+</div>
+</div>
+</div>
+<button class="mt-space-md w-full py-space-xs rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md flex items-center justify-center gap-1 transition-colors" type="button">
+<span>Sanctuary Blueprint</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+<!-- Hack 3: Ultrasonic Humidifier Mineral Aerosol Prevention -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md flex flex-col justify-between shadow-sm hover:shadow-md transition-all">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="w-8 h-8 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-bold text-label-md">03</span>
+<span class="font-label-sm text-label-sm px-space-xs py-0.5 rounded bg-secondary-fixed/50 text-secondary font-bold">Critical Fix</span>
+</div>
+<div class="relative h-32 rounded-lg bg-surface-container-low flex items-center justify-center overflow-hidden">
+<img class="object-cover w-full h-full" data-alt="Laboratory comparison showing an ultrasonic water humidifier emitting mineral aerosol dust clouds from tap water versus clean microscopic vapor from reverse osmosis distilled water in a pristine scientific chamber with emerald sensor readouts." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCT1zSJz9AmcrsKV02an3lIZGp7RN7Vl7PMIdg9KarHvp5nYmf96xihNOuIOXGga-2SEqZLXASykTQdyFnZRPG9CHWSquHrqNXEA2ehzzglX_HAjI8McKFntwjqupGrlfAxMklKDPmsYaNJZass_tB906XBGXL6whVdUPrykUanw3e-gdgl9zo9fVKDKeFnlXtiqKKf8KvVVhoqnyBy2SQ9Xl449yZIVuiyBbEmENff"/>
+<div class="absolute bottom-2 left-2 px-space-xs py-0.5 bg-surface-container-lowest/90 rounded text-label-sm font-label-sm text-on-surface font-bold">
+              0 Tap Minerals
+            </div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Ultrasonic Aerosol Mineral Prevention</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Tap water in ultrasonic misters aerosolizes calcium and magnesium into fake PM2.5 that damages pulmonary lining.
+          </p>
+<div class="pt-space-xs space-y-1">
+<div class="flex items-center gap-1.5 text-body-sm font-body-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-[16px]">check_circle</span>
+<span>100% RO or Distillate only</span>
+</div>
+<div class="flex items-center gap-1.5 text-body-sm font-body-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-[16px]">check_circle</span>
+<span>Evaporative wick migration</span>
+</div>
+<div class="flex items-center gap-1.5 text-body-sm font-body-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-[16px]">check_circle</span>
+<span>45% RH sweet spot target</span>
+</div>
+</div>
+</div>
+<button class="mt-space-md w-full py-space-xs rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md flex items-center justify-center gap-1 transition-colors" type="button">
+<span>Chemical Protocol</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+<!-- Hack 4: Cooktop Induction & Exhaust Hood Sync -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md flex flex-col justify-between shadow-sm hover:shadow-md transition-all">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="w-8 h-8 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-bold text-label-md">04</span>
+<span class="font-label-sm text-label-sm px-space-xs py-0.5 rounded bg-surface-container-high text-on-surface font-semibold">Smart IoT Sync</span>
+</div>
+<div class="relative h-32 rounded-lg bg-surface-container-low flex items-center justify-center overflow-hidden">
+<img class="object-cover w-full h-full" data-alt="Modern ultra-clean kitchen showing a sleek induction cooktop wirelessly synchronized with a stainless steel range hood, smart home data telemetry overlays showing nitrogen dioxide extraction and laminar exhaust plumes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnYjg6AmTNl_-_jqvNk2zosuyYDo3szCuN_QJ28gDzRxyVNoiRi-781k1M-kSf4A9vI6Gfg_T54FzkpoPCi5Qk1r3vtNPwHlQISarKvh7AyhalS9SO49-Bog8bWSE0rC0wzB_Mir9pX2EVvgWaHYQAGAmDmrpZOBfv7iAq946YbnaL--JpTxHXhEMQIM7rv0p0eyDcvHupg8-2fCWvmDIqoBPuGKFJntChQciEl-E8"/>
+<div class="absolute bottom-2 left-2 px-space-xs py-0.5 bg-surface-container-lowest/90 rounded text-label-sm font-label-sm text-on-surface font-bold">
+              Zero Spillover
+            </div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Induction Cooktop &amp; Exhaust Auto-Sync</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Automating a 7-minute laminar exhaust pre-draft before pan heating completely stops cooking oil aerosol drift.
+          </p>
+<div class="pt-space-xs space-y-1">
+<div class="flex items-center gap-1.5 text-body-sm font-body-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-[16px]">check_circle</span>
+<span>Smart plug current-trigger</span>
+</div>
+<div class="flex items-center gap-1.5 text-body-sm font-body-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-[16px]">check_circle</span>
+<span>Pre-draw suction creation</span>
+</div>
+<div class="flex items-center gap-1.5 text-body-sm font-body-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-[16px]">check_circle</span>
+<span>Rear-burner exclusive cooking</span>
+</div>
+</div>
+</div>
+<button class="mt-space-md w-full py-space-xs rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md flex items-center justify-center gap-1 transition-colors" type="button">
+<span>Automation Flow</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Clinical Exposure Suppression Summary Metrics -->
+<section class="w-full max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop pb-space-xl">
+<div class="bg-surface-container-lowest rounded-xl p-space-md md:p-space-lg shadow-sm">
+<div class="flex flex-col md:flex-row md:items-center justify-between pb-space-md gap-space-sm">
+<div>
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Clinical Cohort Biomarker Corroboration</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Aggregated Winter Physiological Defense Metrics</h2>
+</div>
+<div class="inline-flex items-center gap-space-xs text-on-surface-variant font-label-md text-label-md">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span>Sample Size: N=1,420 Active Subscribers</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md mt-space-sm">
+<!-- Metric 1: HRV Preservation -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Cardiac Autonomic Stability</span>
+<span class="material-symbols-outlined text-primary text-[20px]">ecg_heart</span>
+</div>
+<div class="flex items-baseline gap-space-xs mt-space-xs">
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold">+28.4%</span>
+<span class="font-body-sm text-body-sm text-primary font-semibold">rMSSD Gain</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+              Total nocturnal Heart Rate Variability (HRV) preservation throughout consecutive inversion freeze days.
+            </p>
+</div>
+<div class="w-full bg-surface-container h-1 rounded-full mt-space-md overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 78%;"></div>
+</div>
+</div>
+<!-- Metric 2: Deep Alveolar Soot Avoidance -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Pulmonary Deposition Shield</span>
+<span class="material-symbols-outlined text-primary text-[20px]">file_copy</span>
+</div>
+<div class="flex items-baseline gap-space-xs mt-space-xs">
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold">4.8 mg</span>
+<span class="font-body-sm text-body-sm text-primary font-semibold">Soot Avoided / Week</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+              Direct systemic alveolar deposition prevented across family members using automated corridor routing.
+            </p>
+</div>
+<div class="w-full bg-surface-container h-1 rounded-full mt-space-md overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 92%;"></div>
+</div>
+</div>
+<!-- Metric 3: REM Sleep Restoration -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Nocturnal Recovery Index</span>
+<span class="material-symbols-outlined text-primary text-[20px]">bed</span>
+</div>
+<div class="flex items-baseline gap-space-xs mt-space-xs">
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold">+41 min</span>
+<span class="font-body-sm text-body-sm text-primary font-semibold">Deep / REM per Night</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+              Sleep fragmentation index reduced from 14.8 micro-arousals/hr down to 3.1 inside pressurized sanctuaries.
+            </p>
+</div>
+<div class="w-full bg-surface-container h-1 rounded-full mt-space-md overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 84%;"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Client-side Script for Filtering -->
+<script>
+    function filterWorkflows(category) {
+      const cards = document.querySelectorAll('.workflow-card');
+      const buttons = document.querySelectorAll('.scenario-btn');
+      
+      // Update Button Styles
+      buttons.forEach(btn => {
+        btn.classList.remove('bg-primary', 'text-on-primary');
+        btn.classList.add('bg-surface-container-high', 'text-on-surface');
+      });
+
+      const activeBtn = document.getElementById('btn-' + category);
+      if (activeBtn) {
+        activeBtn.classList.remove('bg-surface-container-high', 'text-on-surface');
+        activeBtn.classList.add('bg-primary', 'text-on-primary');
+      }
+
+      // Filter Cards
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-scenario') === category) {
+          card.classList.remove('hidden');
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, 10);
+        } else {
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(6px)';
+          setTimeout(() => {
+            card.classList.add('hidden');
+          }, 200);
+        }
+      });
+    }
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest mt-space-xl shadow-[0_-1px_8px_rgba(0,0,0,0.02)]"><div class="w-full max-w-7xl mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop py-space-xl flex flex-col md:flex-row items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><span class="font-headline-sm text-headline-sm text-on-surface">Aetheris</span><span class="font-body-sm text-body-sm text-outline">© 2025 Aetheris Environmental Technologies. All rights reserved.</span></div><div class="flex flex-wrap items-center gap-space-lg"><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="smog-forecast" href="#">Smog Forecast</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="ai-air-nav" href="#">AI Air Nav</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="action-workflows" href="#">Workflows</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="impact-metrics" href="#">Metrics</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="pricing-community" href="#">Community</a></div></div></footer></body></html>
