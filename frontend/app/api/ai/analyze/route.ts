@@ -119,6 +119,26 @@ export async function POST(req: NextRequest) {
     history.push(now);
     clientCalls.set(clientIp, history);
 
+    // 1. If Vercel service binding BACKEND_URL is injected at runtime, call internal FastAPI service
+    const backendUrl = process.env.BACKEND_URL;
+    if (backendUrl) {
+      try {
+        const target = new URL("/ai/analyze", backendUrl);
+        const backendRes = await fetch(target, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        });
+        if (backendRes.ok) {
+          const backendData = await backendRes.json();
+          aiCache.set(cacheKey, { ts: now, data: backendData });
+          return NextResponse.json(backendData);
+        }
+      } catch {
+        // Fall through to direct NVIDIA NIM call if internal backend is unavailable
+      }
+    }
+
     const { apiKey, model } = loadNvidiaConfig();
     if (!apiKey) {
       return NextResponse.json(

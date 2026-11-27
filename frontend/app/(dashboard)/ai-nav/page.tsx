@@ -172,12 +172,12 @@ export default function AiNavPage() {
       ),
     };
 
-    // 1. Try built-in Next.js server-side AI route (uses NVIDIA_API_KEY from backend/.env)
-    //    and fall back to FastAPI (localhost:8000) if needed.
-    const endpoints = [
-      "/api/ai/analyze",
-      `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/ai/analyze`,
-    ];
+    // Call same-origin Next.js server route (uses Vercel BACKEND_URL binding internally),
+    // or NEXT_PUBLIC_API_URL if explicitly configured.
+    const endpoints = ["/api/ai/analyze"];
+    if (process.env.NEXT_PUBLIC_API_URL) {
+      endpoints.push(new URL("/ai/analyze", process.env.NEXT_PUBLIC_API_URL).toString());
+    }
 
     for (const url of endpoints) {
       try {
