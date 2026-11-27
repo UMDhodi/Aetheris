@@ -3283,63 +3283,90 @@
         alert(`Could not find coordinates for "${q}". Please try another city.`);
       }
 
-      // * GEOLOCATION WITH IP + GPS SUPPORT
+      // * HIERARCHICAL NEAREST-AREA REVERSE GEOCODE: Colony -> Nearest Area (e.g. Jamalpur Kalan) -> City -> State, Country
+      async function resolveNearestLocalityName(lat, lon) {
+        for (const zoom of [16, 14, 12]) {
+          try {
+            const res = await fetch(
+              `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}&zoom=${zoom}&addressdetails=1`,
+              { headers: { Accept: "application/json" } }
+            );
+            if (res.ok) {
+              const d = await res.json();
+              const a = d.address || {};
+              const colony = a.neighbourhood || a.residential || a.quarter || a.hamlet || "";
+              const nearestArea = a.suburb || a.village || a.town || a.city_district || "";
+              const city = a.city || a.state_district || a.county || "";
+              const state = a.state || "";
+              const country = a.country || "";
+
+              const primaryLocal = nearestArea || colony;
+              const parts = [primaryLocal, city, state, country].filter(Boolean);
+              const deduped = parts.filter(
+                (p, idx) => parts.findIndex((x) => x.toLowerCase() === p.toLowerCase()) === idx
+              );
+              if (deduped.length >= 2) return deduped.join(", ");
+            }
+          } catch (e) {}
+        }
+
+        try {
+          const res = await fetch(
+            `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=en`
+          );
+          if (res.ok) {
+            const d = await res.json();
+            const parts = [d.locality, d.city || d.principalSubdivision, d.principalSubdivision, d.countryName].filter(Boolean);
+            const deduped = parts.filter(
+              (p, idx) => parts.findIndex((x) => x.toLowerCase() === p.toLowerCase()) === idx
+            );
+            if (deduped.length > 0) return deduped.join(", ");
+          }
+        } catch (e) {}
+
+        return `${lat.toFixed(4)}°, ${lon.toFixed(4)}°`;
+      }
+
+      // * HIGH-ACCURACY GEOLOCATION: System GPS First -> Exact (lat, lon) to API -> Nearest Area Name
       async function requestLiveLocation() {
         const locDisplay = document.getElementById("exact-location-text");
         const bannerTag = document.getElementById("banner-location-name");
+        if (locDisplay) locDisplay.innerText = "Detecting exact location...";
 
-        if (locDisplay) locDisplay.innerText = "Detecting location...";
+        // Stage 1: System GPS / OS Location first (exact lat/lon for AQI API)
+        if ("geolocation" in navigator) {
+          try {
+            const pos = await new Promise((resolve, reject) =>
+              navigator.geolocation.getCurrentPosition(resolve, reject, {
+                enableHighAccuracy: true,
+                timeout: 8000,
+                maximumAge: 60000,
+              })
+            );
+            const lat = pos.coords.latitude;
+            const lon = pos.coords.longitude;
+            const place = await resolveNearestLocalityName(lat, lon);
+            changeLocation(place, lat, lon);
+            return;
+          } catch (e) {
+            // GPS denied or unavailable -> fall back to IP below
+          }
+        }
 
-        // 1. Try free IP Geolocation (works instantly even if GPS is denied or on file://)
-        let ipResolved = false;
+        // Stage 2: IP Geolocation Fallback (only when GPS is unavailable)
         try {
-          const ipRes = await fetch("https://ipapi.co/json/", { timeout: 3000 });
+          const ipRes = await fetch("https://ipapi.co/json/");
           if (ipRes.ok) {
             const ipData = await ipRes.json();
             if (ipData.latitude && ipData.longitude) {
-              const place = `${ipData.city || "Haridwar"}, ${ipData.region || "Uttarakhand"}, ${ipData.country_name || "India"}`;
-              currentCoords = { lat: ipData.latitude, lon: ipData.longitude, name: place };
-              if (locDisplay) locDisplay.innerText = place;
-              if (bannerTag) bannerTag.innerText = place;
-              fetchOpenAQData(ipData.latitude, ipData.longitude, place);
-              ipResolved = true;
+              const place = await resolveNearestLocalityName(ipData.latitude, ipData.longitude);
+              changeLocation(place, ipData.latitude, ipData.longitude);
+              return;
             }
           }
         } catch (e) {}
 
-        // 2. High-accuracy Browser GPS prompt if available
-        if ("geolocation" in navigator) {
-          navigator.geolocation.getCurrentPosition(
-            async (pos) => {
-              const lat = pos.coords.latitude;
-              const lon = pos.coords.longitude;
-              try {
-                const res = await fetch(
-                  `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=en`
-                );
-                if (res.ok) {
-                  const d = await res.json();
-                  const place = `${d.city || d.locality || "Haridwar"}, ${d.principalSubdivision || "Uttarakhand"}, ${d.countryName || "India"}`;
-                  currentCoords = { lat, lon, name: place };
-                  if (locDisplay) locDisplay.innerText = place;
-                  if (bannerTag) bannerTag.innerText = place;
-                  fetchOpenAQData(lat, lon, place);
-                  return;
-                }
-              } catch (e) {}
-              const place = `Coordinates: ${lat.toFixed(4)}°, ${lon.toFixed(4)}°`;
-              changeLocation(place, lat, lon);
-            },
-            (err) => {
-              if (!ipResolved) {
-                changeLocation("Haridwar, Uttarakhand, India", 29.9457, 78.1642);
-              }
-            },
-            { enableHighAccuracy: true, timeout: 6000 }
-          );
-        } else if (!ipResolved) {
-          changeLocation("Haridwar, Uttarakhand, India", 29.9457, 78.1642);
-        }
+        changeLocation("Haridwar, Uttarakhand, India", 29.9457, 78.1642);
       }
 
       // * WORKABLE HVAC PURGE CONTROLS

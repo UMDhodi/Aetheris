@@ -48,23 +48,130 @@ export interface CommunityStationData {
   action: string;
 }
 
-// * Reverse geocode lat, lon into clean exact location name
+export interface ResolvedLocation {
+  lat: number;
+  lon: number;
+  name: string;
+  source: "gps" | "ip" | "cache" | "default";
+}
+
+// * Hierarchical Reverse Geocode: Colony/Neighbourhood -> Nearest Area (e.g. Jamalpur Kalan) -> City -> State, Country
 export async function reverseGeocodeLocation(lat: number, lon: number): Promise<string> {
+  // 1. Try OpenStreetMap Nominatim (zoom=16 gives colony/suburb/village + parent city)
+  for (const zoom of [16, 14, 12]) {
+    try {
+      const res = await fetch(
+        `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}&zoom=${zoom}&addressdetails=1`,
+        { headers: { Accept: "application/json" } }
+      );
+      if (res.ok) {
+        const d = await res.json();
+        const a = d.address || {};
+        const colony = a.neighbourhood || a.residential || a.quarter || a.hamlet || "";
+        const nearestArea = a.suburb || a.village || a.town || a.city_district || "";
+        const city = a.city || a.state_district || a.county || "";
+        const state = a.state || "";
+        const country = a.country || "";
+
+        // Prefer nearest area (e.g. Jamalpur Kalan) if colony is absent, or combine cleanly without duplicates
+        const primaryLocal = nearestArea || colony;
+        const parts = [primaryLocal, city, state, country].filter(Boolean);
+        const deduped = parts.filter(
+          (p, idx) => parts.findIndex((x) => x.toLowerCase() === p.toLowerCase()) === idx
+        );
+        if (deduped.length >= 2) {
+          return deduped.join(", ");
+        }
+      }
+    } catch {
+      // Try next zoom / fallback provider
+    }
+  }
+
+  // 2. Fallback to BigDataCloud reverse-geocode + informative locality list
   try {
     const res = await fetch(
       `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=en`
     );
     if (res.ok) {
       const d = await res.json();
-      const city = d.city || d.locality || d.principalSubdivision || "Haridwar";
-      const state = d.principalSubdivision || "Uttarakhand";
-      const country = d.countryName || "India";
-      return `${city}, ${state}, ${country}`;
+      const locality = d.locality || "";
+      const city = d.city || d.principalSubdivision || "";
+      const state = d.principalSubdivision || "";
+      const country = d.countryName || "";
+      const parts = [locality, city, state, country].filter(Boolean);
+      const deduped = parts.filter(
+        (p, idx) => parts.findIndex((x) => x.toLowerCase() === p.toLowerCase()) === idx
+      );
+      if (deduped.length > 0) return deduped.join(", ");
     }
   } catch (err) {
     console.warn("Reverse geocode fallback:", err);
   }
-  return `Haridwar, Uttarakhand, India`;
+
+  return `${lat.toFixed(4)}°, ${lon.toFixed(4)}°`;
+}
+
+// * High-Accuracy Location Algorithm:
+//   1) System GPS / OS Location first (exact lat/lon for AQI API)
+//   2) Hierarchical nearest-area lookup (colony -> nearest area -> city)
+//   3) IP geolocation fallback ONLY if system GPS is denied/unavailable
+export async function resolveAccurateLocation(forceRefresh = false): Promise<ResolvedLocation> {
+  if (!forceRefresh && typeof window !== "undefined") {
+    try {
+      const raw = localStorage.getItem("aetheris_accurate_loc");
+      if (raw) {
+        const cached = JSON.parse(raw);
+        if (cached && cached.lat && cached.lon && Date.now() - cached.ts < 10 * 60 * 1000) {
+          return { lat: cached.lat, lon: cached.lon, name: cached.name, source: "cache" };
+        }
+      }
+    } catch {}
+  }
+
+  // Stage 1: Exact System GPS / Wi-Fi Positioning
+  if (typeof window !== "undefined" && "geolocation" in navigator) {
+    try {
+      const pos = await new Promise<GeolocationPosition>((resolve, reject) =>
+        navigator.geolocation.getCurrentPosition(resolve, reject, {
+          enableHighAccuracy: true,
+          timeout: 8000,
+          maximumAge: 60000,
+        })
+      );
+      const lat = pos.coords.latitude;
+      const lon = pos.coords.longitude;
+      const name = await reverseGeocodeLocation(lat, lon);
+      const resolved: ResolvedLocation = { lat, lon, name, source: "gps" };
+      try {
+        localStorage.setItem("aetheris_accurate_loc", JSON.stringify({ ...resolved, ts: Date.now() }));
+      } catch {}
+      return resolved;
+    } catch {
+      // GPS denied or timed out -> fall back to IP
+    }
+  }
+
+  // Stage 2: IP Geolocation Fallback (with Nominatim nearest-area refinement)
+  try {
+    const ipRes = await fetch("https://ipapi.co/json/", { cache: "no-store" });
+    if (ipRes.ok) {
+      const ipData = await ipRes.json();
+      if (ipData.latitude && ipData.longitude) {
+        const lat = Number(ipData.latitude);
+        const lon = Number(ipData.longitude);
+        const name = await reverseGeocodeLocation(lat, lon);
+        return { lat, lon, name, source: "ip" };
+      }
+    }
+  } catch {}
+
+  return {
+    lat: 29.9457,
+    lon: 78.1642,
+    name: "Haridwar, Uttarakhand, India",
+    source: "default",
+  };
 }
 
 // * Fetch 100% REAL air quality, boundary layer height, wind shear & forecast

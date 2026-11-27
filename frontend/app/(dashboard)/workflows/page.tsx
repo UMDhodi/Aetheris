@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { fetchLiveAirQuality, reverseGeocodeLocation, AirQualityMetrics } from "@/lib/api";
+import { fetchLiveAirQuality, resolveAccurateLocation, AirQualityMetrics } from "@/lib/api";
 
 export default function WorkflowsPage() {
   const [filter, setFilter] = useState("all");
@@ -13,36 +13,10 @@ export default function WorkflowsPage() {
     let active = true;
     async function loadTelemetry() {
       setLoading(true);
-      let lat = 29.9457;
-      let lon = 78.1642;
-      let city = "Haridwar, Uttarakhand, India";
-
-      try {
-        const ipRes = await fetch("https://ipapi.co/json/", { cache: "no-store" });
-        if (ipRes.ok) {
-          const ipData = await ipRes.json();
-          if (ipData.latitude && ipData.longitude) {
-            lat = ipData.latitude;
-            lon = ipData.longitude;
-            city = `${ipData.city || "Haridwar"}, ${ipData.region || "Uttarakhand"}, ${ipData.country_name || "India"}`;
-          }
-        }
-      } catch {
-        if (typeof window !== "undefined" && "geolocation" in navigator) {
-          try {
-            const pos = await new Promise<GeolocationPosition>((resolve, reject) =>
-              navigator.geolocation.getCurrentPosition(resolve, reject, { timeout: 4000 })
-            );
-            lat = pos.coords.latitude;
-            lon = pos.coords.longitude;
-            city = await reverseGeocodeLocation(lat, lon);
-          } catch {}
-        }
-      }
-
+      const loc = await resolveAccurateLocation(false);
       if (!active) return;
-      setLocationName(city);
-      const data = await fetchLiveAirQuality(city, lat, lon);
+      setLocationName(loc.name);
+      const data = await fetchLiveAirQuality(loc.name, loc.lat, loc.lon);
       if (!active) return;
       setMetrics(data);
       setLoading(false);

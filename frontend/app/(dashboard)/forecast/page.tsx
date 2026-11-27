@@ -6,7 +6,7 @@ import { useState, useEffect, useRef } from "react";
 import AlertBanner from "@/components/AlertBanner";
 import {
   fetchLiveAirQuality,
-  reverseGeocodeLocation,
+  resolveAccurateLocation,
   fetchCommunityStations,
   AirQualityMetrics,
   CommunityStationData,
@@ -63,37 +63,11 @@ export default function SmogForecastPage() {
   const [mapHover, setMapHover] = useState<{ x: number; y: number; isTrap: boolean } | null>(null);
   const [timelineHover, setTimelineHover] = useState<{ x: number; y: number; svgX: number; hourIdx: number } | null>(null);
 
-  // * IP + GPS Dual Geolocation
+  // * High-Accuracy GPS-first + Nearest-Area Resolution
   const detectLiveLocation = async () => {
-    try {
-      const ipRes = await fetch("https://ipapi.co/json/", { cache: "no-store" });
-      if (ipRes.ok) {
-        const ipData = await ipRes.json();
-        if (ipData.latitude && ipData.longitude) {
-          const place = `${ipData.city || "Haridwar"}, ${ipData.region || "Uttarakhand"}, ${ipData.country_name || "India"}`;
-          setCoords({ lat: ipData.latitude, lon: ipData.longitude });
-          setLocationName(place);
-          return;
-        }
-      }
-    } catch (e) {}
-
-    if (typeof window !== "undefined" && "geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(
-        async (position) => {
-          const lat = position.coords.latitude;
-          const lon = position.coords.longitude;
-          setCoords({ lat, lon });
-          const place = await reverseGeocodeLocation(lat, lon);
-          setLocationName(place);
-        },
-        () => {
-          setCoords({ lat: 29.9457, lon: 78.1642 });
-          setLocationName("Haridwar, Uttarakhand, India");
-        },
-        { enableHighAccuracy: true, timeout: 6000 }
-      );
-    }
+    const loc = await resolveAccurateLocation(false);
+    setCoords({ lat: loc.lat, lon: loc.lon });
+    setLocationName(loc.name);
   };
 
   const formatCityLabel = (r: CitySuggestion) =>
